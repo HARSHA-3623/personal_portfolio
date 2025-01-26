@@ -58,7 +58,7 @@ const Hero = () => {
           </p>
           <div className="space-x-4">
             <a
-              href="https://drive.google.com/file/d/16xxrmo1zq_2oc-8eUw4Wyn1p9u0VhG2J/view?usp=sharing"
+              href="https://drive.google.com/file/d/1KieS_lxQFO1uI1FDZ-WQtcPlj2G8CqEv/view?usp=sharing"
               className="inline-block px-3 py-3 bg-[#4cd7d0] text-[#0f2a4f] font-semibold rounded-md hover:bg-[#3bbfb8] transition-all duration-300"
             >
               Download Resume
