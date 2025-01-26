@@ -126,6 +126,12 @@ const Navbar = () => {
               Skills
             </a>
             <a
+              href="#experience"
+              className="block px-4 py-2 rounded-md text-lg font-semibold hover:bg-white hover:text-[#0f2a4f] transition-colors duration-300"
+            >
+              Experience
+            </a>
+            <a
               href="#contact"
               className="block px-4 py-2 rounded-md text-lg font-semibold hover:bg-white hover:text-[#0f2a4f] transition-colors duration-300"
             >

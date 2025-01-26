@@ -4,7 +4,7 @@ const skills = [
   {
     name: "Frontend",
     skills: [
-      { name: "HTML", level: 90, image: "./src/assets/Html.png" },
+      { name: "HTML", level: 90, image: "src/assets/Html.png" },
       { name: "CSS", level: 85, image: "./src/assets/css.png" },
       { name: "JavaScript", level: 75, image: "./src/assets/JS.png" },
       { name: "React.js", level: 50, image: "./src/assets/react.png" },
