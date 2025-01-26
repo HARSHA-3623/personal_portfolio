@@ -86,8 +86,8 @@ const Hero = () => {
           }}
         >
           <img
-            src="src\assets\Profie.jpg"
-            alt="Your Name"
+            src="/assets/Profie.jpg"
+            alt="Harshavardan Naidu"
             className="rounded-full shadow-lg w-48 h-48 lg:w-80 lg:h-80 object-cover transition-transform duration-300 hover:scale-105 mb-6 lg:mb-0"
           />
         </motion.div>

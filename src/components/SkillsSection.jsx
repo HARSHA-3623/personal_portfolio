@@ -4,19 +4,19 @@ const skills = [
   {
     name: "Frontend",
     skills: [
-      { name: "HTML", level: 90, image: "src/assets/Html.png" },
-      { name: "CSS", level: 85, image: "./src/assets/css.png" },
-      { name: "JavaScript", level: 75, image: "./src/assets/JS.png" },
-      { name: "React.js", level: 50, image: "./src/assets/react.png" },
+      { name: "HTML", level: 90, image: "./assets/Html.png" },
+      { name: "CSS", level: 85, image: "./assets/css.png" },
+      { name: "JavaScript", level: 75, image: "./assets/JS.png" },
+      { name: "React.js", level: 50, image: "./assets/react.png" },
     ],
   },
   {
     name: "Programming & Tools",
     skills: [
-      { name: "Java", level: 65, image: "./src/assets/java.png" },
-      { name: "Python", level: 50, image: "./src/assets/python.png" },
-      { name: "MySQL", level: 60, image: "./src/assets/mysql.png" },
-      { name: "Git", level: 85, image: "./src/assets/git.png" },
+      { name: "Java", level: 65, image: "./assets/java.png" },
+      { name: "Python", level: 50, image: "./assets/python.png" },
+      { name: "MySQL", level: 60, image: "./assets/mysql.png" },
+      { name: "Git", level: 85, image: "./assets/git.png" },
     ],
   },
 ];
