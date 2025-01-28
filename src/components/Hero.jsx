@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
-  const titles = ["Harshavardan Naidu", "Web Developer", "Aspiring Software Engineer"];
+  const NAME = "Harshavardan Naidu"; // Constant for the name
+  const titles = ["Web Developer", "Aspiring Software Engineer", "Tech Enthusiast"];
   const [displayText, setDisplayText] = useState("");
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
@@ -46,11 +47,24 @@ const Hero = () => {
             ease: "easeInOut",
           }}
         >
-          <h1 className="text-2xl lg:text-4xl font-bold leading-tight">
+          <h1 className="text-3xl lg:text-5xl font-bold leading-tight">
             Hi, I'm{" "}
-            <span className="text-[#4cd7d0]">{displayText}</span>
-            <span className="blinking-cursor">|</span>
+            <span className="text-[#4cd7d0]">{NAME}👋</span>
           </h1>
+          {/* Smaller motion text animation */}
+          <motion.p
+            className="text-lg lg:text-2xl font-semibold text-[#4cd7d0] mt-2 flex items-center justify-center lg:justify-start"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1.2,
+              delay: 0.5,
+              ease: "easeOut",
+            }}
+          >
+            <span className="text-white">and I'm a </span> <span className="ml-2">{displayText}</span>
+            <span className="blinking-cursor">|</span>
+          </motion.p>
           <p className="text-md lg:text-xl font-medium px-4 lg:px-0 text-justify">
             I am a passionate Web Developer with expertise in HTML, CSS, JavaScript, and React.js.
             With a strong foundation in backend technologies like Java and Python, I enjoy building
@@ -87,7 +101,7 @@ const Hero = () => {
         >
           <img
             src="/assets/Profie.jpg"
-            alt="Harshavardan Naidu"
+            alt={NAME}
             className="rounded-full shadow-lg w-48 h-48 lg:w-80 lg:h-80 object-cover transition-transform duration-300 hover:scale-105 mb-6 lg:mb-0"
           />
         </motion.div>
