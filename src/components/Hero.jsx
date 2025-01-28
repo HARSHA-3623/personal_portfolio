@@ -47,7 +47,7 @@ const Hero = () => {
             ease: "easeInOut",
           }}
         >
-          <h1 className="text-3xl lg:text-5xl font-bold leading-tight">
+          <h1 className="text-2xl lg:text-5xl font-bold leading-tight">
             Hi, I'm{" "}
             <span className="text-[#4cd7d0]">{NAME}👋</span>
           </h1>
