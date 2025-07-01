@@ -1,9 +1,8 @@
 @import "tailwindcss";
 
-body{
-    background: linear-gradient(to right, #0f2a4f, #1a3e66);
-    font-family: 'Nunito', sans-serif;
-    color: white;
+body {
+  background: linear-gradient(to right, #0f2a4f, #1a3e66);
+  color: white;
 }
 
 @keyframes fadeIn {

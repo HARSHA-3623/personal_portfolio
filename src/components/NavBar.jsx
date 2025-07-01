@@ -6,27 +6,46 @@ const Navbar = () => {
   const handleScrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Adds a smooth scrolling effect
+      behavior: "smooth",
     });
+    setIsOpen(false); // Close menu if clicking logo on mobile
+  };
+
+  const handleLinkClick = (e, sectionId) => {
+    e.preventDefault();
+    const target = document.getElementById(sectionId);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsOpen(false); // Close mobile menu
   };
 
   return (
-    <nav
-      className="bg-gradient-to-r from-[#0f2a4f] to-[#1a3e66] text-white fixed w-full z-10 animate-fadeIn"
-    >
+    <nav className="bg-gradient-to-r from-[#0f2a4f] to-[#1a3e66] text-white fixed w-full z-10 animate-fadeIn font-poppins">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;600&display=swap');
+        .font-poppins {
+          font-family: 'Poppins', sans-serif;
+        }
+        .font-playfair {
+          font-family: 'Playfair Display', serif;
+        }
+      `}</style>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-14"> {/* reduced height */}
           {/* Logo */}
           <div className="flex-shrink-0 cursor-pointer">
             <h1
-              className="text-2xl font-bold transition-transform duration-300 hover:scale-105"
               onClick={handleScrollToTop}
+              className="text-xl sm:text-2xl font-bold transition-transform duration-300 hover:scale-105 font-playfair"
             >
-              My Portfolio
+              <span className="text-[#facc15]">Harshavardan</span>{" "}
+              <span className="text-white">Naidu</span>
             </h1>
           </div>
 
-          {/* Hamburger menu button */}
+          {/* Hamburger menu */}
           <div className="-mr-2 flex sm:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -62,81 +81,42 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Nav Links */}
+          {/* Desktop nav */}
           <div className="hidden sm:block">
             <div className="flex space-x-6">
-              <a
-                href="#about"
-                className="px-4 py-2 rounded-md text-lg font-semibold hover:bg-white hover:text-[#0f2a4f] transition-colors duration-300"
-              >
-                About
-              </a>
-              <a
-                href="#projects"
-                className="px-4 py-2 rounded-md text-lg font-semibold hover:bg-white hover:text-[#0f2a4f] transition-colors duration-300"
-              >
-                Projects
-              </a>
-              <a
-                href="#skills"
-                className="px-4 py-2 rounded-md text-lg font-semibold hover:bg-white hover:text-[#0f2a4f] transition-colors duration-300"
-              >
-                Skills
-              </a>
-              <a
-                href="#experience"
-                className="px-4 py-2 rounded-md text-lg font-semibold hover:bg-white hover:text-[#0f2a4f] transition-colors duration-300"
-              >
-                Experience
-              </a>
-              <a
-                href="#contact"
-                className="px-4 py-2 rounded-md text-lg font-semibold hover:bg-white hover:text-[#0f2a4f] transition-colors duration-300"
-              >
-                Contact
-              </a>
+              {["about", "projects", "skills", "experience", "contact"].map(
+                (link) => (
+                  <a
+                    key={link}
+                    href={`#${link}`}
+                    onClick={(e) => handleLinkClick(e, link)}
+                    className="px-4 py-2 rounded-md text-lg font-semibold hover:bg-white hover:text-[#0f2a4f] transition-colors duration-300"
+                  >
+                    {link.charAt(0).toUpperCase() + link.slice(1)}
+                  </a>
+                )
+              )}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       {isOpen && (
-        <div
-          className="sm:hidden animate-slideDown"
-          id="mobile-menu"
-        >
+        <div className="sm:hidden animate-slideDown" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            <a
-              href="#about"
-              className="block px-4 py-2 rounded-md text-lg font-semibold hover:bg-white hover:text-[#0f2a4f] transition-colors duration-300"
-            >
-              About
-            </a>
-            <a
-              href="#projects"
-              className="block px-4 py-2 rounded-md text-lg font-semibold hover:bg-white hover:text-[#0f2a4f] transition-colors duration-300"
-            >
-              Projects
-            </a>
-            <a
-              href="#skills"
-              className="block px-4 py-2 rounded-md text-lg font-semibold hover:bg-white hover:text-[#0f2a4f] transition-colors duration-300"
-            >
-              Skills
-            </a>
-            <a
-              href="#experience"
-              className="block px-4 py-2 rounded-md text-lg font-semibold hover:bg-white hover:text-[#0f2a4f] transition-colors duration-300"
-            >
-              Experience
-            </a>
-            <a
-              href="#contact"
-              className="block px-4 py-2 rounded-md text-lg font-semibold hover:bg-white hover:text-[#0f2a4f] transition-colors duration-300"
-            >
-              Contact
-            </a>
+            {["about", "projects", "skills", "experience", "contact"].map(
+              (link) => (
+                <a
+                  key={link}
+                  href={`#${link}`}
+                  onClick={(e) => handleLinkClick(e, link)}
+                  className="block px-4 py-2 rounded-md text-lg font-semibold hover:bg-white hover:text-[#0f2a4f] transition-colors duration-300"
+                >
+                  {link.charAt(0).toUpperCase() + link.slice(1)}
+                </a>
+              )
+            )}
           </div>
         </div>
       )}

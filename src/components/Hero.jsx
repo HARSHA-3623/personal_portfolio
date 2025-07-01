@@ -2,16 +2,15 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
-  const NAME = "Harshavardan Naidu"; // Constant for the name
-  const titles = ["Web Developer", "Aspiring Software Engineer", "Tech Enthusiast"];
+  const titles = ["Aspiring FullStack Developer","Tech Enthusiast", "Web Developer", "Backend Developer"];
   const [displayText, setDisplayText] = useState("");
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const typingSpeed = isDeleting ? 100 : 150; // Typing and deleting speed
-    const nextTitleDelay = 2000; // Delay before switching to the next title
+    const typingSpeed = isDeleting ? 100 : 150;
+    const nextTitleDelay = 2000;
 
     const timeoutId = setTimeout(() => {
       const currentTitle = titles[currentTitleIndex];
@@ -26,7 +25,7 @@ const Hero = () => {
         setTimeout(() => setIsDeleting(true), nextTitleDelay);
       } else if (isDeleting && charIndex === 0) {
         setIsDeleting(false);
-        setCurrentTitleIndex((prev) => (prev + 1) % titles.length); // Cycle through titles
+        setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
       }
     }, typingSpeed);
 
@@ -34,59 +33,57 @@ const Hero = () => {
   }, [charIndex, isDeleting, currentTitleIndex, titles]);
 
   return (
-    <div className="bg-gradient-to-r from-[#0f2a4f] to-[#1a3e66] text-white h-screen flex items-center justify-center">
-      <style>{`html { scroll-behavior: smooth; }`}</style>
-      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center">
-        {/* Left Side: Basic Details with Fade Animation */}
+    <section
+      id="hero"
+      className="bg-gradient-to-r from-[#0f2a4f] to-[#1a3e66] text-white min-h-screen flex items-center justify-center px-6 sm:px-12 lg:px-24"
+    >
+      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center w-full space-y-10 lg:space-y-0 lg:space-x-8">
+        {/* Left content */}
         <motion.div
-          className="lg:w-full lg:px-12 text-center lg:text-left space-y-4"
+          className="lg:w-full text-center lg:text-left space-y-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{
-            duration: 1.5,
-            ease: "easeInOut",
-          }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
         >
-          <h1 className="text-2xl lg:text-5xl font-bold leading-tight">
-            Hi, I'm{" "}
-            <span className="text-[#4cd7d0]">{NAME}👋</span>
+          <h1 className="text-3xl sm:text-3xl lg:text-4xl font-bold font-playfair leading-tight">
+            Hi, I'm <span className="text-[#facc15]">Harshavardan</span>{" "}
+            <span className="text-[#00f0ff]">Naidu</span> 👋
           </h1>
-          {/* Smaller motion text animation */}
+
           <motion.p
-            className="text-lg lg:text-2xl font-semibold text-[#4cd7d0] mt-2 flex items-center justify-center lg:justify-start"
+            className="text-lg lg:text-2xl font-semibold text-[#4cd7d0] mt-2 font-poppins"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1.2,
-              delay: 0.5,
-              ease: "easeOut",
-            }}
+            transition={{ duration: 1.2, delay: 0.5 }}
           >
-            <span className="text-white">and I'm a </span> <span className="ml-2">{displayText}</span>
+            <span className="text-white">and I'm a </span>
+            <span className="ml-2">{displayText}</span>
             <span className="blinking-cursor">|</span>
           </motion.p>
-          <p className="text-md lg:text-xl font-medium px-4 lg:px-0 text-justify">
-            I am a passionate Web Developer with expertise in HTML, CSS, JavaScript, and React.js.
-            With a strong foundation in backend technologies like Java and Python, I enjoy building
-            scalable and efficient web applications. My goal is to create seamless digital experiences.
+
+          <p className="text-md lg:text-lg font-poppins text-gray-200 text-justify px-2 lg:px-0">
+            I’m a passionate developer skilled in Java, Spring Boot, React.js, and My SQL. I love building efficient and responsive applications that make life easier.
           </p>
-          <div className="space-x-4">
+
+          <div className="flex flex-col sm:flex-row items-center sm:justify-start space-y-3 sm:space-y-0 sm:space-x-4">
             <a
-              href="https://drive.google.com/file/d/1KieS_lxQFO1uI1FDZ-WQtcPlj2G8CqEv/view?usp=sharing"
-              className="inline-block px-3 py-3 bg-[#4cd7d0] text-[#0f2a4f] font-semibold rounded-md hover:bg-[#3bbfb8] transition-all duration-300"
+              href="https://drive.google.com/file/d/1R_VhlmHYl8EMEfBnLTDn0TPmgHAfbtFn/view?usp=sharing"
+              className="inline-block px-5 py-3 bg-[#4cd7d0] text-[#0f2a4f] font-semibold rounded-md hover:bg-[#3bbfb8] transition-all duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Download Resume
             </a>
             <a
               href="#contact"
-              className="inline-block px-3 py-3 border-2 border-[#4cd7d0] text-[#4cd7d0] font-semibold rounded-md hover:bg-[#4cd7d0] hover:text-[#0f2a4f] transition-all duration-300"
+              className="inline-block px-5 py-3 border-2 border-[#4cd7d0] text-[#4cd7d0] font-semibold rounded-md hover:bg-[#4cd7d0] hover:text-[#0f2a4f] transition-all duration-300"
             >
               Contact Me
             </a>
           </div>
         </motion.div>
 
-        {/* Right Side: Photo with Bounce-and-Scale Animation */}
+        {/* Right profile image */}
         <motion.div
           className="lg:w-1/2 flex justify-center"
           initial={{ scale: 0.8, y: 20, opacity: 0 }}
@@ -100,13 +97,13 @@ const Hero = () => {
           }}
         >
           <img
-            src="/assets/Profie.jpg"
-            alt={NAME}
-            className="rounded-full shadow-lg w-48 h-48 lg:w-80 lg:h-80 object-cover transition-transform duration-300 hover:scale-105 mb-6 lg:mb-0"
+            src="/assets\Profile.png"
+            alt="Harshavardan Naidu"
+            className="rounded-full shadow-xl w-48 h-48 lg:w-80 lg:h-80 object-cover transition-transform duration-300 hover:scale-105"
           />
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

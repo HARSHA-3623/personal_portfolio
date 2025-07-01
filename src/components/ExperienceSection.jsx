@@ -3,26 +3,17 @@ import { motion } from "framer-motion";
 
 const experiences = [
   {
-    title: "Salesforce Administrator Internship",
-    duration: "April 2023 - May 2023",
+    title: "Java Trainee – Global Quest Technologies (GQT)",
+    duration: "May 2025 – Present",
     description:
-      "Gained hands-on experience in CRM management systems, earned 42 Trailhead badges, and accumulated 57,550 points. Achieved the rank of Mountaineer Badger.",
-    certificateLink:
-      "https://drive.google.com/file/d/1iFjI32avmWq6i2c2ja8MXZs6oMIA_dzL/view?usp=sharing",
+      "Hands-on training in Core and Advanced Java including OOPs, JDBC, Servlets, JSP. Working on project development under professional mentorship.",
+    certificateLink: "#",
   },
   {
-    title: "IBM SkillsBuild Internship in Cybersecurity",
-    duration: "October 13, 2023 - November 26, 2023",
+    title: "Full Stack Java Intern – ExcelR Edtech Pvt. Ltd. & APSCHE",
+    duration: "July 2024 – August 2024",
     description:
-      "Worked on the Steganography project, gaining valuable experience in cybersecurity concepts and practical implementations.",
-    certificateLink:
-      "https://drive.google.com/file/d/1o6mFP90lHRj3QsAx-HmZIY9LafgeAxjp/view?usp=sharing",
-  },
-  {
-    title: "Java Full-Stack Internship",
-    duration: "June 15, 2024 - July 31, 2024",
-    description:
-      "Worked on Spring Boot projects, developing full-stack applications and enhancing backend and frontend integration skills.",
+      "Learned Full Stack Java including Spring Boot, REST APIs, HTML, CSS, JS, and MySQL. Built and deployed web-based mini projects during the internship.",
     certificateLink:
       "https://drive.google.com/file/d/1qaVptAMJywbiYHZeZl4IMP-yX1VVKatn/view?usp=sharing",
   },
@@ -32,13 +23,11 @@ const ExperienceSection = () => {
   return (
     <section
       id="experience"
-      className="bg-gradient-to-r from-[#0f2a4f] to-[#1a3e66] text-white py-16 px-6 sm:px-12 lg:px-24"
+      className="bg-gradient-to-r from-[#0f2a4f] to-[#1a3e66] text-white py-20 px-6 sm:px-10 xl:px-20 font-poppins"
     >
-      <style>{`html { scroll-behavior: smooth; }`}</style>
-      <div className="max-w-7xl mx-auto">
-        {/* Section Title Animation */}
+      <div className="max-w-6xl mx-auto">
         <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-[#4cd7d0]"
+          className="text-3xl sm:text-4xl font-bold text-center mb-12 text-[#4cd7d0] font-playfair"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -47,73 +36,34 @@ const ExperienceSection = () => {
           Experience
         </motion.h2>
 
-        <div className="relative border-l-2 border-[#4cd7d0] pl-6 mx-auto lg:max-w-4xl">
+        <div className="grid gap-10 sm:grid-cols-2">
           {experiences.map((experience, index) => (
-            <div key={index} className="mb-10 last:mb-0">
-              <div className="absolute -left-3 w-6 h-6 bg-[#4cd7d0] rounded-full border-2 border-white"></div>
-              {/* Title Animation */}
-              <motion.h3
-                className="text-xl sm:text-2xl font-bold mb-2"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.2,
-                  ease: "easeOut",
-                }}
-                viewport={{ once: true }}
-              >
+            <motion.div
+              key={index}
+              className="bg-[#1f4a6e] rounded-xl p-6 shadow-lg hover:shadow-2xl transition duration-300 border border-[#4cd7d0]/20"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl sm:text-2xl font-bold text-[#81ecec] font-playfair mb-2">
                 {experience.title}
-              </motion.h3>
-
-              {/* Duration Animation */}
-              <motion.span
-                className="text-sm sm:text-base text-gray-300 block mb-2"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.3,
-                  ease: "easeOut",
-                }}
-                viewport={{ once: true }}
-              >
+              </h3>
+              <span className="text-sm sm:text-base text-gray-300 block mb-3">
                 {experience.duration}
-              </motion.span>
-
-              {/* Description Animation */}
-              <motion.p
-                className="text-sm sm:text-base text-gray-200 leading-relaxed"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.4,
-                  ease: "easeOut",
-                }}
-                viewport={{ once: true }}
-              >
+              </span>
+              <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3">
                 {experience.description}
-              </motion.p>
-
-              {/* Certificate Link Animation */}
-              <motion.a
+              </p>
+              <a
                 href={experience.certificateLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm sm:text-base text-[#4cd7d0] mt-2 block"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.5,
-                  ease: "easeOut",
-                }}
-                viewport={{ once: true }}
+                className="text-sm sm:text-base text-[#4cd7d0] hover:underline"
               >
                 View Certificate
-              </motion.a>
-            </div>
+              </a>
+            </motion.div>
           ))}
         </div>
       </div>

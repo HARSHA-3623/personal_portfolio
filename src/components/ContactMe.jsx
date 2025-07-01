@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, Linkedin, Github } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 export default function ContactMe() {
+  const formRef = useRef();
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
@@ -13,37 +15,49 @@ export default function ContactMe() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-    setSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
+
+    emailjs.send(
+      'service_5w0xord',
+      'template_9n5c731',
+      formData,
+      '1kTcw0zHqh_wK5y_w'
+    )
+    .then(() => {
+      setSubmitted(true);
+      setFormData({ name: "", email: "", message: "" });
+    })
+    .catch((error) => {
+      console.error("EmailJS Error:", error);
+      alert("Failed to send message. Please try again later.");
+    });
   };
 
   return (
-    <section className="bg-gradient-to-r from-[#0f2a4f] to-[#1a3e66] text-white py-16 px-6" id="contact">
+    <section className="bg-gradient-to-r from-[#0f2a4f] to-[#1a3e66] text-white py-20 px-6 font-poppins" id="contact">
       <style>{`html { scroll-behavior: smooth; }`}</style>
       <motion.div
-        className="max-w-4xl mx-auto text-center"
+        className="max-w-6xl mx-auto text-center"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl font-bold mb-6 text-[#4cd7d0]">Contact Me</h2>
-        <p className="text-xl text-gray-300 mb-8">
-          Feel free to reach out for collaborations or just a friendly chat!
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-[#4cd7d0] font-playfair">Contact Me</h2>
+        <p className="text-lg sm:text-xl text-gray-300 mb-8">
+          Let's connect! Whether you're a working professional, open-source contributor, or just someone looking to collaborate or share insights—I'm always up for learning and building together.
         </p>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: true }}
         >
           {/* Contact Form */}
-          <form className="bg-[#1a3e66] shadow-lg rounded-xl p-6" onSubmit={handleSubmit}>
+          <form ref={formRef} className="bg-[#1a3e66] shadow-xl rounded-xl p-6 text-left" onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="name">
+              <label className="block text-gray-300 text-sm font-semibold mb-1" htmlFor="name">
                 Name
               </label>
               <input
@@ -57,7 +71,7 @@ export default function ContactMe() {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="email">
+              <label className="block text-gray-300 text-sm font-semibold mb-1" htmlFor="email">
                 Email
               </label>
               <input
@@ -71,7 +85,7 @@ export default function ContactMe() {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-300 text-sm font-bold mb-2" htmlFor="message">
+              <label className="block text-gray-300 text-sm font-semibold mb-1" htmlFor="message">
                 Message
               </label>
               <textarea
@@ -86,7 +100,7 @@ export default function ContactMe() {
             </div>
             <button
               type="submit"
-              className="w-full bg-[#4cd7d0] text-[#0f2a4f] py-2 px-4 rounded-lg hover:bg-[#3cb5af] transition duration-200"
+              className="w-full bg-[#4cd7d0] text-[#0f2a4f] py-2 px-4 rounded-lg font-semibold hover:bg-[#3cb5af] transition duration-200"
             >
               {submitted ? "Message Sent!" : "Send Message"}
             </button>
@@ -94,7 +108,7 @@ export default function ContactMe() {
 
           {/* Contact Information */}
           <motion.div
-            className="flex flex-col justify-center bg-[#1a3e66] shadow-lg rounded-xl p-6"
+            className="flex flex-col justify-center bg-[#1a3e66] shadow-xl rounded-xl p-6 text-left"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
@@ -103,10 +117,10 @@ export default function ContactMe() {
             <div className="flex items-center mb-4">
               <Mail className="text-[#4cd7d0] mr-4" />
               <a
-                href="mailto:harshavardan3623@gmail.com"
+                href="mailto:harshavardan3623@outlook.com"
                 className="text-gray-300 hover:underline"
               >
-                harshavardan3623@gmail.com
+                harshavardan3623@outlook.com
               </a>
             </div>
             <div className="flex items-center mb-4">
