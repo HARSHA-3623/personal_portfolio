@@ -1,71 +1,41 @@
-import React from "react";
 import { motion } from "framer-motion";
-
-const experiences = [
-  {
-    title: "Java Trainee – Global Quest Technologies (GQT)",
-    duration: "May 2025 – Present",
-    description:
-      "Hands-on training in Core and Advanced Java including OOPs, JDBC, Servlets, JSP. Working on project development under professional mentorship.",
-    certificateLink: "#",
-  },
-  {
-    title: "Full Stack Java Intern – ExcelR Edtech Pvt. Ltd. & APSCHE",
-    duration: "July 2024 – August 2024",
-    description:
-      "Learned Full Stack Java including Spring Boot, REST APIs, HTML, CSS, JS, and MySQL. Built and deployed web-based mini projects during the internship.",
-    certificateLink:
-      "https://drive.google.com/file/d/1qaVptAMJywbiYHZeZl4IMP-yX1VVKatn/view?usp=sharing",
-  },
-];
+import { experience } from "../data/portfolio";
+import SectionHeader from "./SectionHeader";
 
 const ExperienceSection = () => {
   return (
-    <section
-      id="experience"
-      className="bg-gradient-to-r from-[#0f2a4f] to-[#1a3e66] text-white py-20 px-6 sm:px-10 xl:px-20 font-poppins"
-    >
-      <div className="max-w-6xl mx-auto">
-        <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-center mb-12 text-[#4cd7d0] font-playfair"
-          initial={{ opacity: 0, y: 20 }}
+    <section id="experience" className="section-padding" aria-labelledby="experience-heading">
+      <div className="max-w-4xl mx-auto">
+        <SectionHeader
+          title="Experience"
+          subtitle="Production backend work in iGaming"
+        />
+        <motion.article
+          className="card p-6 sm:p-8"
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          Experience
-        </motion.h2>
-
-        <div className="grid gap-10 sm:grid-cols-2">
-          {experiences.map((experience, index) => (
-            <motion.div
-              key={index}
-              className="bg-[#1f4a6e] rounded-xl p-6 shadow-lg hover:shadow-2xl transition duration-300 border border-[#4cd7d0]/20"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-xl sm:text-2xl font-bold text-[#81ecec] font-playfair mb-2">
-                {experience.title}
-              </h3>
-              <span className="text-sm sm:text-base text-gray-300 block mb-3">
-                {experience.duration}
-              </span>
-              <p className="text-sm sm:text-base text-gray-200 leading-relaxed mb-3">
-                {experience.description}
-              </p>
-              <a
-                href={experience.certificateLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm sm:text-base text-[#4cd7d0] hover:underline"
-              >
-                View Certificate
-              </a>
-            </motion.div>
-          ))}
-        </div>
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6">
+            <div>
+              <h3 className="text-xl font-semibold text-white">{experience.company}</h3>
+              <p className="text-sky-400 font-medium mt-1">{experience.role}</p>
+            </div>
+            <div className="text-sm text-slate-400 sm:text-right">
+              <p>{experience.industry}</p>
+              <p>{experience.duration}</p>
+            </div>
+          </div>
+          <ul className="space-y-3 text-slate-300 text-sm sm:text-base">
+            {experience.responsibilities.map((item) => (
+              <li key={item} className="flex gap-3">
+                <span className="text-sky-500 mt-1.5 shrink-0">▸</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.article>
       </div>
     </section>
   );

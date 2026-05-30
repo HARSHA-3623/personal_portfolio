@@ -1,106 +1,80 @@
-import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { heroStats, RESUME_URL } from "../data/portfolio";
 
 const Hero = () => {
-  const titles = ["Aspiring FullStack Developer","Tech Enthusiast", "Web Developer", "Backend Developer"];
-  const [displayText, setDisplayText] = useState("");
-  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const typingSpeed = isDeleting ? 100 : 150;
-    const nextTitleDelay = 2000;
-
-    const timeoutId = setTimeout(() => {
-      const currentTitle = titles[currentTitleIndex];
-
-      if (!isDeleting && charIndex < currentTitle.length) {
-        setDisplayText((prev) => prev + currentTitle[charIndex]);
-        setCharIndex((prev) => prev + 1);
-      } else if (isDeleting && charIndex > 0) {
-        setDisplayText((prev) => prev.slice(0, -1));
-        setCharIndex((prev) => prev - 1);
-      } else if (!isDeleting && charIndex === currentTitle.length) {
-        setTimeout(() => setIsDeleting(true), nextTitleDelay);
-      } else if (isDeleting && charIndex === 0) {
-        setIsDeleting(false);
-        setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
-      }
-    }, typingSpeed);
-
-    return () => clearTimeout(timeoutId);
-  }, [charIndex, isDeleting, currentTitleIndex, titles]);
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section
       id="hero"
-      className="bg-gradient-to-r from-[#0f2a4f] to-[#1a3e66] text-white min-h-screen flex items-center justify-center px-6 sm:px-12 lg:px-24"
+      className="min-h-screen flex items-center section-padding pt-28"
+      aria-label="Introduction"
     >
-      <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center w-full space-y-10 lg:space-y-0 lg:space-x-8">
-        {/* Left content */}
+      <div className="max-w-6xl mx-auto w-full">
         <motion.div
-          className="lg:w-full text-center lg:text-left space-y-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
-          <h1 className="text-3xl sm:text-3xl lg:text-4xl font-bold font-playfair leading-tight">
-            Hi, I'm <span className="text-[#facc15]">Harshavardan</span>{" "}
-            <span className="text-[#00f0ff]">Naidu</span> 👋
+          <p className="text-sky-400 text-sm font-medium tracking-wide uppercase mb-4">
+            Production Backend Systems
+          </p>
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
+            Harshavardan Naidu
           </h1>
-
-          <motion.p
-            className="text-lg lg:text-2xl font-semibold text-[#4cd7d0] mt-2 font-poppins"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.5 }}
-          >
-            <span className="text-white">and I'm a </span>
-            <span className="ml-2">{displayText}</span>
-            <span className="blinking-cursor">|</span>
-          </motion.p>
-
-          <p className="text-md lg:text-lg font-poppins text-gray-200 text-justify px-2 lg:px-0">
-            I’m a passionate developer skilled in Java, Spring Boot, React.js, and My SQL. I love building efficient and responsive applications that make life easier.
+          <p className="mt-3 text-xl sm:text-2xl text-slate-300 font-medium">
+            Backend Engineer
+          </p>
+          <p className="mt-6 max-w-3xl text-base sm:text-lg text-slate-400 leading-relaxed">
+            Building scalable transaction-driven systems for iGaming platforms.
+            Experienced in payment integrations, affiliate systems, KYC workflows,
+            user migration initiatives, transaction processing, and production
+            reliability.
+          </p>
+          <p className="mt-4 text-sm text-slate-500">
+            Node.js · PostgreSQL · Redis · Integrations · Production Systems
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center sm:justify-start space-y-3 sm:space-y-0 sm:space-x-4">
+          <div className="mt-8 flex flex-wrap gap-3">
+            <button
+              type="button"
+              onClick={() => scrollTo("experience")}
+              className="btn-primary"
+            >
+              View Experience
+            </button>
             <a
-              href="https://drive.google.com/file/d/1R_VhlmHYl8EMEfBnLTDn0TPmgHAfbtFn/view?usp=sharing"
-              className="inline-block px-5 py-3 bg-[#4cd7d0] text-[#0f2a4f] font-semibold rounded-md hover:bg-[#3bbfb8] transition-all duration-300"
+              href={RESUME_URL}
+              className="btn-secondary"
               target="_blank"
               rel="noopener noreferrer"
             >
               Download Resume
             </a>
-            <a
-              href="#contact"
-              className="inline-block px-5 py-3 border-2 border-[#4cd7d0] text-[#4cd7d0] font-semibold rounded-md hover:bg-[#4cd7d0] hover:text-[#0f2a4f] transition-all duration-300"
+            <button
+              type="button"
+              onClick={() => scrollTo("contact")}
+              className="btn-secondary"
             >
               Contact Me
-            </a>
+            </button>
           </div>
         </motion.div>
 
-        {/* Right profile image */}
         <motion.div
-          className="lg:w-1/2 flex justify-center"
-          initial={{ scale: 0.8, y: 20, opacity: 0 }}
-          animate={{ scale: 1, y: 0, opacity: 1 }}
-          transition={{
-            duration: 1.2,
-            ease: "easeOut",
-            type: "spring",
-            stiffness: 120,
-            damping: 10,
-          }}
+          className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <img
-            src="/assets\Profile.png"
-            alt="Harshavardan Naidu"
-            className="rounded-full shadow-xl w-48 h-48 lg:w-80 lg:h-80 object-cover transition-transform duration-300 hover:scale-105"
-          />
+          {heroStats.map((stat) => (
+            <div key={stat.label} className="card p-5">
+              <p className="text-2xl font-semibold text-sky-400">{stat.value}</p>
+              <p className="mt-2 text-sm text-slate-400 leading-snug">{stat.label}</p>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>

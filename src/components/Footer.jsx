@@ -1,11 +1,10 @@
-import React from 'react';
-
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-[#0f2a4f] to-[#1a3e66] text-white py-2">
-      <div className="container mx-auto flex justify-center items-center">
-        <p className="text-sm">&copy; 2025 Harshavardan. All rights reserved.</p>
-      </div>
+    <footer className="border-t border-[var(--border)] py-6 px-6 text-center">
+      <p className="text-xs text-slate-500">
+        &copy; {new Date().getFullYear()} Harshavardan Naidu. Backend Engineer — Production
+        Systems.
+      </p>
     </footer>
   );
 };
