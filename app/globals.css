@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #080b0f;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --border: rgba(148, 163, 184, 0.12);
+  --glow: rgba(56, 189, 248, 0.15);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-surface-glass backdrop-blur-xl border border-white/[0.08];
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-sky-300 to-cyan-200 bg-clip-text text-transparent;
+  }
+
+  .section-pad {
+    @apply py-24 px-6 sm:px-10 lg:px-16 max-w-6xl mx-auto;
+  }
+}
