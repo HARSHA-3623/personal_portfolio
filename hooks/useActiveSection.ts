@@ -1,45 +1,43 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import { getScrollOffset } from "@/lib/scroll";
 
 export function useActiveSection(sectionIds: string[]) {
   const [active, setActive] = useState(sectionIds[0] ?? "hero");
 
-  useEffect(() => {
-    const observers: IntersectionObserver[] = [];
+  const updateActive = useCallback(() => {
+    if (window.scrollY < 100) {
+      setActive("hero");
+      return;
+    }
 
-    const handleScroll = () => {
-      if (window.scrollY < 120) {
-        setActive("hero");
-      }
-    };
+    const offset = getScrollOffset() + 48;
+    const scrollPosition = window.scrollY + offset;
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    let current = sectionIds.find((id) => id !== "hero") ?? "about";
 
-    sectionIds.forEach((id) => {
-      if (id === "hero") return;
+    for (const id of sectionIds) {
+      if (id === "hero") continue;
       const el = document.getElementById(id);
-      if (!el) return;
+      if (!el) continue;
+      if (el.offsetTop <= scrollPosition) {
+        current = id;
+      }
+    }
 
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting && window.scrollY >= 120) {
-            setActive(id);
-          }
-        },
-        { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
-      );
-
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      observers.forEach((o) => o.disconnect());
-    };
+    setActive(current);
   }, [sectionIds]);
+
+  useEffect(() => {
+    updateActive();
+    window.addEventListener("scroll", updateActive, { passive: true });
+    window.addEventListener("resize", updateActive, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", updateActive);
+      window.removeEventListener("resize", updateActive);
+    };
+  }, [updateActive]);
 
   return active;
 }

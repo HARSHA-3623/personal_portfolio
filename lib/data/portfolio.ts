@@ -17,7 +17,7 @@ export const heroTechStack = [
 export const impactStats = [
   { value: "400K+", label: "Users Migration Support" },
   { value: "6000+", label: "Concurrent User Validation" },
-  { value: "Multiple", label: "Payment Integrations" },
+  { value: "Payment", label: "Gateway Integrations" },
   { value: "Casino & Affiliate", label: "Integrations" },
 ];
 

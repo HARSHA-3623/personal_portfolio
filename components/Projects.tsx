@@ -18,14 +18,14 @@ export function Projects() {
     tab === "professional" ? professionalProjects : personalProjects;
 
   return (
-    <section id="projects" className="section-pad">
+    <section id="projects" className="scroll-target section-pad">
       <SectionHeader
         eyebrow="Portfolio"
         title="Featured Projects"
         subtitle="Industry platform work and personal learning projects"
       />
 
-      <div className="flex justify-center gap-1 mb-12 p-1.5 glass rounded-2xl w-fit mx-auto">
+      <div className="flex justify-center gap-1 mb-10 sm:mb-12 p-1.5 glass rounded-2xl w-full max-w-md sm:max-w-lg mx-auto">
         {(
           [
             { id: "professional" as Tab, label: "Professional Work" },
@@ -37,7 +37,7 @@ export function Projects() {
             type="button"
             onClick={() => setTab(t.id)}
             className={clsx(
-              "relative px-5 py-2.5 text-sm font-medium rounded-xl transition-all duration-300",
+              "relative flex-1 px-4 sm:px-5 py-2.5 text-sm font-medium rounded-xl transition-all duration-300",
               tab === t.id
                 ? "text-sky-300"
                 : "text-slate-500 hover:text-slate-300"
@@ -59,8 +59,10 @@ export function Projects() {
         <motion.div
           key={tab}
           className={clsx(
-            "grid gap-6 sm:gap-8",
-            tab === "professional" ? "lg:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3"
+            "grid gap-6 lg:gap-8 w-full",
+            tab === "professional"
+              ? "md:grid-cols-2"
+              : "sm:grid-cols-2 xl:grid-cols-3"
           )}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}

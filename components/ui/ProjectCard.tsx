@@ -69,7 +69,7 @@ export function ProjectCard({ project, index, variant }: Props) {
       </div>
 
       <div className="p-6 flex flex-col flex-1 relative z-10">
-        <h3 className="text-lg font-semibold text-white group-hover:text-sky-300 transition-colors">
+        <h3 className="font-heading text-lg sm:text-xl font-semibold text-white group-hover:text-sky-300 transition-colors">
           {project.title}
         </h3>
         <p className="mt-2 text-sm text-slate-400 leading-relaxed line-clamp-2 sm:line-clamp-none">

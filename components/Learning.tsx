@@ -6,12 +6,12 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function Learning() {
   return (
-    <section className="section-pad py-14">
+    <section className="section-pad py-14 sm:py-16">
       <Reveal className="text-center">
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-slate-600 mb-5">
           Currently learning
         </p>
-        <ul className="flex flex-wrap justify-center gap-2.5">
+        <ul className="flex flex-wrap justify-center gap-2.5 sm:gap-3 max-w-3xl mx-auto">
           {currentLearning.map((topic, i) => (
             <motion.li
               key={topic}
