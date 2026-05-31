@@ -20,11 +20,12 @@ export function Projects() {
   return (
     <section id="projects" className="section-pad">
       <SectionHeader
+        eyebrow="Portfolio"
         title="Featured Projects"
-        subtitle="Professional platform work and personal learning projects"
+        subtitle="Industry platform work and personal learning projects"
       />
 
-      <div className="flex justify-center gap-2 mb-10 p-1 glass rounded-xl w-fit mx-auto">
+      <div className="flex justify-center gap-1 mb-12 p-1.5 glass rounded-2xl w-fit mx-auto">
         {(
           [
             { id: "professional" as Tab, label: "Professional Work" },
@@ -36,13 +37,20 @@ export function Projects() {
             type="button"
             onClick={() => setTab(t.id)}
             className={clsx(
-              "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300",
+              "relative px-5 py-2.5 text-sm font-medium rounded-xl transition-all duration-300",
               tab === t.id
-                ? "bg-sky-500/20 text-sky-300 border border-sky-500/30"
+                ? "text-sky-300"
                 : "text-slate-500 hover:text-slate-300"
             )}
           >
-            {t.label}
+            {tab === t.id && (
+              <motion.span
+                layoutId="project-tab"
+                className="absolute inset-0 bg-sky-500/15 border border-sky-500/25 rounded-xl"
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+              />
+            )}
+            <span className="relative z-10">{t.label}</span>
           </button>
         ))}
       </div>
@@ -50,18 +58,21 @@ export function Projects() {
       <AnimatePresence mode="wait">
         <motion.div
           key={tab}
-          className="grid gap-8 md:grid-cols-2"
-          initial={{ opacity: 0, y: 12 }}
+          className={clsx(
+            "grid gap-6 sm:gap-8",
+            tab === "professional" ? "lg:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3"
+          )}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.3 }}
+          exit={{ opacity: 0, y: -12 }}
+          transition={{ duration: 0.35 }}
         >
           {projects.map((project, index) => (
             <ProjectCard
               key={project.title}
               project={project}
               index={index}
-              compact={tab === "personal"}
+              variant={tab === "professional" ? "professional" : "personal"}
             />
           ))}
         </motion.div>

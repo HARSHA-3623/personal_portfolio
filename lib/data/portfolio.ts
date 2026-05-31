@@ -7,11 +7,18 @@ export const CONTACT = {
   github: "https://github.com/HARSHA-3623",
 };
 
-export const heroStats = [
+export const heroTechStack = [
+  "Node.js",
+  "PostgreSQL",
+  "Redis",
+  "Express.js",
+];
+
+export const impactStats = [
   { value: "400K+", label: "Users Migration Support" },
-  { value: "6000+", label: "Concurrent Users Validation" },
-  { value: "Multiple", label: "Payment Gateway Integrations" },
-  { value: "Multi", label: "Casino & Affiliate Integrations" },
+  { value: "6000+", label: "Concurrent User Validation" },
+  { value: "Multiple", label: "Payment Integrations" },
+  { value: "Casino & Affiliate", label: "Integrations" },
 ];
 
 export const experienceMeta = {
@@ -20,6 +27,17 @@ export const experienceMeta = {
   duration: "Aug 2025 – Present",
   industry: "iGaming",
 };
+
+export const experienceHighlights = [
+  "REST APIs for platform, admin, and client customization",
+  "Payment gateway integrations (N1CO, Virtual Pay, XGate)",
+  "Casino provider webhooks — bets, wins, and wallet flows",
+  "KYC onboarding and affiliate tracking integrations",
+  "Background jobs for affiliate and transaction events",
+  "Migration support for 400K+ user accounts",
+  "Load testing and callback optimization (~6000 concurrent users)",
+  "Customer.io email and backoffice service APIs",
+];
 
 export type Project = {
   title: string;
@@ -36,38 +54,31 @@ export const professionalProjects: Project[] = [
   {
     title: "iGaming Platform Project 1",
     description:
-      "Worked on creating RESTful APIs for frontend applications and platform services.",
+      "RESTful APIs for frontend applications, admin backoffice, and client platform configuration.",
     contributions: [
-      "Developed backend APIs using Node.js and Express.js.",
-      "Integrated payment gateway services.",
-      "Integrated Customer.io email services.",
-      "Built admin backoffice APIs.",
-      "Worked on banner management APIs.",
-      "Worked on game management APIs.",
-      "Developed website customization APIs for clients.",
-      "Supported client-specific platform configurations.",
+      "Developed backend APIs using Node.js and Express.js",
+      "Integrated payment gateway services",
+      "Integrated Customer.io email services",
+      "Built admin backoffice APIs",
+      "Banner and game management APIs",
+      "Website customization APIs for clients",
+      "Client-specific platform configurations",
     ],
     technologies: ["Node.js", "Express.js", "PostgreSQL", "Customer.io"],
   },
   {
     title: "iGaming Platform Project 2",
     description:
-      "Worked on gaming integrations, transaction processing systems, migration support, KYC onboarding, affiliate systems, and payment services.",
+      "Gaming integrations, transactions, migration support, KYC, affiliates, and payment services.",
     contributions: [
-      "Integrated casino providers.",
-      "Handled bets and wins requests through webhooks.",
-      "Processed wallet mutations and transaction flows.",
-      "Integrated payment gateway services.",
-      "Handled payment callbacks and balance updates.",
-      "Integrated third-party KYC services.",
-      "Built onboarding verification workflows.",
-      "Integrated affiliate tracking platforms.",
-      "Processed affiliate activity events through background jobs.",
-      "Participated in migration support for 400K+ users.",
-      "Participated in load testing activities.",
-      "Optimized casino webhook services.",
-      "Supported traffic requirements of approximately 6000 concurrent users.",
-      "Developed admin backoffice APIs.",
+      "Integrated casino providers with webhook handling",
+      "Processed wallet mutations and transaction flows",
+      "Payment callbacks and balance updates",
+      "Third-party KYC and onboarding workflows",
+      "Affiliate tracking with background job processing",
+      "Migration support for 400K+ users",
+      "Load testing and webhook optimization (~6000 concurrent users)",
+      "Admin backoffice APIs",
     ],
     technologies: [
       "Node.js",
@@ -83,37 +94,41 @@ export const professionalProjects: Project[] = [
 export const personalProjects: Project[] = [
   {
     title: "E-Commerce App (Swing)",
-    description: "A GUI-based shopping cart system in Java Swing.",
+    description: "GUI-based shopping cart with cart, billing, and inventory modules.",
     contributions: [
-      "Built modular UI flows for cart, billing, and inventory in a desktop application.",
+      "Modular desktop UI flows and state handling for e-commerce features.",
     ],
     technologies: ["Java", "Swing"],
+    image:
+      "https://images.unsplash.com/photo-1664455340023-214c33a9d0bd?w=600&auto=format&fit=crop&q=60",
     github: "#",
   },
   {
-    title: "Course Management System (Swing)",
-    description: "Java Swing app for managing courses and users.",
+    title: "Course Management System",
+    description: "Swing app for professor–student course and user management.",
     contributions: [
-      "Designed role-based workflows for professors and students with persistent data modeling.",
+      "Role-based workflows with persistent data modeling.",
     ],
     technologies: ["Java", "Swing"],
+    image: "https://sprout24.com/wp-content/uploads/2021/06/lms-.png",
     github: "https://github.com/HARSHA-3623/Course-Management-System",
   },
   {
     title: "Quiz App (Swing)",
-    description: "Interactive quiz app using Java Swing with timer and score.",
+    description: "Interactive quiz application with timer and score tracking.",
     contributions: [
-      "Implemented timed sessions, scoring logic, and dynamic question delivery.",
+      "Timed sessions, scoring logic, and dynamic question delivery.",
     ],
     technologies: ["Java", "Swing"],
+    image:
+      "https://projectgurukul.org/wp-content/uploads/2023/06/quiz-application.webp",
     github: "https://github.com/HARSHA-3623/SwingQuizApp",
   },
   {
     title: "Inventory Management System",
-    description:
-      "A web app using Spring Boot for inventory and stock management.",
+    description: "Spring Boot web app for inventory and stock management.",
     contributions: [
-      "Practiced REST API design, relational data modeling, and full-stack delivery.",
+      "REST API design, relational modeling, and full-stack delivery.",
     ],
     technologies: ["Spring Boot", "MySQL", "Java"],
     github: "https://github.com/HARSHA-3623/Ecom-proj",
@@ -122,19 +137,21 @@ export const personalProjects: Project[] = [
   },
   {
     title: "Weather Forecast App",
-    description: "Real-time weather data using OpenWeather API.",
+    description: "Real-time weather using the OpenWeather API.",
     contributions: [
-      "Integrated third-party APIs and built a responsive consumer-facing UI.",
+      "Third-party API integration and responsive UI.",
     ],
     technologies: ["OpenWeather API", "CSS", "JavaScript"],
     liveDemo: "https://weather-app-mu-azure.vercel.app/",
     github: "https://github.com/HARSHA-3623/Weather_app",
+    image:
+      "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=600&auto=format&fit=crop&q=60",
   },
   {
-    title: "Netflix Clone Website",
-    description: "Netflix UI clone with Tailwind CSS and responsive design.",
+    title: "Netflix Clone",
+    description: "Responsive Netflix-style UI built with Tailwind CSS.",
     contributions: [
-      "Focused on layout systems, responsive design, and component-driven structure.",
+      "Layout systems, responsive design, and component structure.",
     ],
     technologies: ["Tailwind CSS", "HTML"],
     liveDemo: "https://netflix-clone-by-harsha.vercel.app/",
@@ -147,14 +164,17 @@ export const personalProjects: Project[] = [
 export const skillGroups = [
   {
     name: "Backend",
+    icon: "backend" as const,
     items: ["Node.js", "Express.js", "REST APIs", "Webhooks"],
   },
   {
     name: "Database",
+    icon: "database" as const,
     items: ["PostgreSQL", "Redis"],
   },
   {
     name: "Integrations",
+    icon: "integrations" as const,
     items: [
       "Payment Gateways",
       "Affiliate Systems",
@@ -165,19 +185,21 @@ export const skillGroups = [
   },
   {
     name: "Tools",
+    icon: "tools" as const,
     items: ["Git", "Postman", "Linux", "AWS"],
   },
 ];
 
 export const currentLearning = [
   "System Design",
-  "Distributed Systems",
-  "Scalable Architectures",
   "Cloud Infrastructure",
+  "API Design",
+  "Performance Optimization",
 ];
 
 export const navLinks = [
   { id: "about", label: "About" },
+  { id: "impact", label: "Impact" },
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
   { id: "skills", label: "Skills" },

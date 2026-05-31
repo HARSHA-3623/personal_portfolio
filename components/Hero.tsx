@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { heroStats, RESUME_URL } from "@/lib/data/portfolio";
+import { RESUME_URL } from "@/lib/data/portfolio";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { TechRotator } from "@/components/ui/TechRotator";
 
 export function Hero() {
   const scrollTo = (id: string) =>
@@ -11,62 +12,70 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center section-pad pt-32"
+      className="relative min-h-[92vh] flex items-center section-pad pt-28 overflow-hidden"
     >
-      <div className="w-full">
-        <motion.p
-          className="text-sky-400/90 text-sm font-medium tracking-wide mb-4"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+      <div
+        className="absolute top-1/4 -left-32 w-72 h-72 rounded-full bg-sky-500/10 blur-[100px] pointer-events-none"
+        aria-hidden
+      />
+      <div
+        className="absolute bottom-1/4 right-0 w-96 h-96 rounded-full bg-cyan-500/8 blur-[120px] pointer-events-none"
+        aria-hidden
+      />
+
+      <div className="w-full relative z-10">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass text-xs text-slate-400 mb-8"
         >
-          Backend Engineer · iGaming Platforms
-        </motion.p>
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          Backend Engineer · iGaming
+        </motion.div>
 
         <motion.h1
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white"
-          initial={{ opacity: 0, y: 20 }}
+          className="text-[2.75rem] sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]"
+          initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
+          transition={{ delay: 0.15, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          Harshavardan{" "}
-          <span className="text-gradient">Naidu</span>
+          <span className="block text-white">Harshavardan</span>
+          <span className="block text-gradient mt-1">Naidu</span>
         </motion.h1>
 
         <motion.p
-          className="mt-3 text-xl text-slate-300 font-medium"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.35 }}
+          className="mt-5 text-lg sm:text-xl text-slate-300 font-medium max-w-md"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
         >
           Backend Engineer
         </motion.p>
 
         <motion.p
-          className="mt-6 max-w-2xl text-slate-400 leading-relaxed"
+          className="mt-5 max-w-xl text-slate-400 text-base sm:text-lg leading-relaxed"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45 }}
+          transition={{ delay: 0.4 }}
         >
-          Backend Engineer experienced in building scalable iGaming platforms,
-          payment integrations, affiliate systems, KYC workflows, transaction
-          processing, and backend services using Node.js, PostgreSQL, and Redis.
+          Building iGaming backends — APIs, payments, affiliates, KYC, and
+          transaction flows with Node.js, PostgreSQL, and Redis.
         </motion.p>
 
-        <motion.p
-          className="mt-4 text-sm text-slate-500"
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-          Node.js · Express.js · PostgreSQL · Redis
-        </motion.p>
+          <TechRotator />
+        </motion.div>
 
         <motion.div
-          className="mt-8 flex flex-wrap gap-3"
+          className="mt-10 flex flex-wrap gap-3"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.55 }}
+          transition={{ delay: 0.6 }}
         >
           <MagneticButton onClick={() => scrollTo("projects")}>
             View Work
@@ -74,35 +83,9 @@ export function Hero() {
           <MagneticButton href={RESUME_URL} variant="secondary">
             Download Resume
           </MagneticButton>
-          <MagneticButton
-            variant="secondary"
-            onClick={() => scrollTo("contact")}
-          >
+          <MagneticButton variant="secondary" onClick={() => scrollTo("contact")}>
             Contact
           </MagneticButton>
-        </motion.div>
-
-        <motion.div
-          className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.65, duration: 0.6 }}
-        >
-          {heroStats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              className="glass rounded-xl p-5 hover:border-sky-500/20 transition-colors"
-              whileHover={{ scale: 1.02 }}
-              transition={{ delay: i * 0.05 }}
-            >
-              <p className="text-xl sm:text-2xl font-semibold text-sky-400">
-                {stat.value}
-              </p>
-              <p className="mt-1.5 text-xs sm:text-sm text-slate-500 leading-snug">
-                {stat.label}
-              </p>
-            </motion.div>
-          ))}
         </motion.div>
       </div>
     </section>

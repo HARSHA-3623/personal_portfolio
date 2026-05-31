@@ -13,7 +13,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Harshavardan Naidu | Backend Engineer",
   description:
-    "Backend Engineer building scalable iGaming platforms with Node.js, PostgreSQL, and Redis. Payment integrations, affiliate systems, and transaction processing.",
+    "Backend Engineer building iGaming platforms with Node.js, PostgreSQL, and Redis. APIs, payment integrations, affiliate systems, and transaction processing.",
   keywords: [
     "Backend Engineer",
     "Node.js",

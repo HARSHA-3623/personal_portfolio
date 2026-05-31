@@ -1,29 +1,44 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Reveal } from "@/components/ui/Reveal";
 
 type Props = {
   title: string;
   subtitle?: string;
+  eyebrow?: string;
+  align?: "left" | "center";
 };
 
-export function SectionHeader({ title, subtitle }: Props) {
+export function SectionHeader({
+  title,
+  subtitle,
+  eyebrow,
+  align = "left",
+}: Props) {
   return (
-    <motion.div
-      className="mb-14"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5 }}
-    >
-      <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white">
+    <Reveal className={`mb-12 sm:mb-14 ${align === "center" ? "text-center" : ""}`}>
+      {eyebrow && (
+        <p className="text-xs font-medium uppercase tracking-[0.2em] text-sky-500/80 mb-3">
+          {eyebrow}
+        </p>
+      )}
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-3 max-w-xl text-slate-400 text-sm sm:text-base">
+        <p
+          className={`mt-3 text-slate-400 text-sm sm:text-base max-w-lg leading-relaxed ${
+            align === "center" ? "mx-auto" : ""
+          }`}
+        >
           {subtitle}
         </p>
       )}
-    </motion.div>
+      <div
+        className={`mt-5 h-px w-12 bg-gradient-to-r from-sky-500/60 to-transparent ${
+          align === "center" ? "mx-auto" : ""
+        }`}
+      />
+    </Reveal>
   );
 }

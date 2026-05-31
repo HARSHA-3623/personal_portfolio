@@ -7,7 +7,8 @@
   --text: #f1f5f9;
   --muted: #94a3b8;
   --border: rgba(148, 163, 184, 0.12);
-  --glow: rgba(56, 189, 248, 0.15);
+  --glow: rgba(56, 189, 248, 0.12);
+  --accent: #38bdf8;
 }
 
 html {
@@ -26,10 +27,53 @@ body {
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-sky-300 to-cyan-200 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-sky-300 via-cyan-200 to-sky-400 bg-clip-text text-transparent;
   }
 
   .section-pad {
-    @apply py-24 px-6 sm:px-10 lg:px-16 max-w-6xl mx-auto;
+    @apply py-20 sm:py-24 px-6 sm:px-10 lg:px-16 max-w-6xl mx-auto;
+  }
+
+  .section-alt {
+    @apply bg-white/[0.015];
+  }
+
+  .card-interactive {
+    @apply relative rounded-2xl overflow-hidden transition-all duration-300;
+    @apply bg-surface-elevated/80 border border-white/[0.08];
+    @apply hover:border-sky-500/30 hover:shadow-lg hover:shadow-sky-500/5;
+  }
+
+  .card-interactive::before {
+    content: "";
+    @apply absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 pointer-events-none;
+    background: linear-gradient(
+      135deg,
+      rgba(56, 189, 248, 0.08) 0%,
+      transparent 50%,
+      rgba(34, 211, 238, 0.05) 100%
+    );
+  }
+
+  .card-interactive:hover::before {
+    @apply opacity-100;
+  }
+
+  .gradient-ring {
+    @apply relative;
+  }
+
+  .gradient-ring::after {
+    content: "";
+    @apply absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-300 -z-10;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.35), transparent 60%);
+  }
+
+  .gradient-ring:hover::after {
+    @apply opacity-100;
+  }
+
+  .prose-muted {
+    @apply text-slate-400 leading-relaxed;
   }
 }
