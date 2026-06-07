@@ -7,6 +7,31 @@ export const CONTACT = {
   github: "https://github.com/HARSHA-3623",
 };
 
+export const heroIntro = [
+  "Backend Engineer with experience building scalable backend services for iGaming platforms.",
+  "Worked on payment gateway integrations, casino provider integrations, KYC onboarding systems, affiliate tracking, real-time wallet updates using Socket.IO, and transaction processing workflows using Node.js, PostgreSQL, Redis, and Express.js.",
+  "Focused on building reliable APIs, integration-driven systems, and backend solutions for modern web platforms.",
+];
+
+export const heroTechRotator = [
+  "Node.js",
+  "Express.js",
+  "PostgreSQL",
+  "Redis",
+  "Socket.IO",
+  "Webhooks",
+  "REST APIs",
+];
+
+export const heroHighlights = [
+  "Payment Gateway Integrations",
+  "Casino Provider Integrations",
+  "KYC Systems",
+  "Affiliate Tracking",
+  "Real-time Wallet Updates",
+  "REST APIs & Webhooks",
+];
+
 export const experienceMeta = {
   company: "GAMMASTACK",
   role: "Backend Engineer (Solution Engineer)",

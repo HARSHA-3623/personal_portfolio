@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { RESUME_URL } from "@/lib/data/portfolio";
+import { RESUME_URL, heroIntro } from "@/lib/data/portfolio";
 import { HeroPhoto } from "@/components/ui/HeroPhoto";
+import { TechRotator } from "@/components/ui/TechRotator";
+import { HeroHighlights } from "@/components/ui/HeroHighlights";
 import { scrollToSection } from "@/lib/scroll";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -15,7 +17,7 @@ export function Hero() {
       id="hero"
       className="scroll-target relative min-h-0 lg:min-h-[85vh] flex items-center container-wide px-5 sm:px-8 lg:px-12 xl:px-14 pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 section-default"
     >
-      <div className="w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 sm:gap-10 lg:gap-12">
+      <div className="w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 sm:gap-7 lg:gap-8">
         <motion.div
           className="order-2 lg:order-1 flex-1 min-w-0 max-w-3xl"
           initial={{ opacity: 0, y: 20 }}
@@ -51,21 +53,33 @@ export function Hero() {
             Backend Engineer
           </motion.p>
 
-          <motion.p
-            className="mt-3 max-w-xl text-slate-400 text-base sm:text-lg leading-relaxed text-balance"
+          <motion.div
+            className="mt-3 sm:mt-4 max-w-2xl space-y-3 text-slate-400 text-sm sm:text-base leading-relaxed"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.24 }}
           >
-            Backend Engineer focused on building APIs, integrations, transaction
-            systems, and backend services for iGaming platforms.
-          </motion.p>
+            {heroIntro.map((paragraph) => (
+              <p key={paragraph} className="text-balance">
+                {paragraph}
+              </p>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <TechRotator />
+            <HeroHighlights />
+          </motion.div>
 
           <motion.div
             className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap gap-3"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.32 }}
+            transition={{ delay: 0.36 }}
           >
             <button
               type="button"
@@ -92,7 +106,7 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        <div className="order-1 lg:order-2 flex justify-center lg:justify-end lg:flex-shrink-0 lg:w-[260px]">
+        <div className="order-1 lg:order-2 flex justify-center lg:justify-end lg:flex-shrink-0 lg:w-[260px] lg:-ml-2">
           <HeroPhoto />
         </div>
       </div>
