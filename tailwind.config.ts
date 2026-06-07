@@ -10,17 +10,28 @@ const config: Config = {
     extend: {
       colors: {
         surface: {
-          DEFAULT: "#111113",
-          elevated: "#18181b",
+          DEFAULT: "#0B1220",
+          elevated: "#111827",
         },
         accent: {
-          DEFAULT: "#818cf8",
-          muted: "#6366f1",
+          primary: "#38BDF8",
+          secondary: "#8B5CF6",
+          success: "#22C55E",
         },
       },
       fontFamily: {
         sans: ["var(--font-body)", "system-ui", "sans-serif"],
         heading: ["var(--font-heading)", "system-ui", "sans-serif"],
+      },
+      animation: {
+        float: "float 6s ease-in-out infinite",
+        "float-slow": "float 8s ease-in-out infinite",
+      },
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
       },
     },
   },

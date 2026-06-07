@@ -213,8 +213,7 @@ export const currentLearning = [
 export const navLinks = [
   { id: "about", label: "About" },
   { id: "experience", label: "Experience" },
-  { id: "work", label: "Work" },
-  { id: "personal", label: "Projects" },
+  { id: "projects", label: "Projects" },
   { id: "skills", label: "Skills" },
   { id: "contact", label: "Contact" },
 ];

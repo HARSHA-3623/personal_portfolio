@@ -3,13 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --bg: #09090b;
-  --surface: #111113;
-  --surface-elevated: #18181b;
-  --text: #fafafa;
-  --muted: #a1a1aa;
-  --border: rgba(255, 255, 255, 0.08);
-  --accent: #818cf8;
+  --bg: #050816;
+  --surface: #0b1220;
+  --surface-elevated: #111827;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --border: rgba(148, 163, 184, 0.12);
+  --primary: #38bdf8;
+  --secondary: #8b5cf6;
+  --success: #22c55e;
   --scroll-offset: 5.5rem;
 }
 
@@ -38,7 +40,11 @@ h3,
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-zinc-100 via-zinc-200 to-zinc-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-sky-300 via-sky-200 to-violet-300 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-subtle {
+    @apply bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text text-transparent;
   }
 
   .container-wide {
@@ -46,7 +52,7 @@ h3,
   }
 
   .section-pad {
-    @apply py-20 sm:py-28 container-wide;
+    @apply py-20 sm:py-28 container-wide relative;
   }
 
   .scroll-target {
@@ -59,25 +65,123 @@ h3,
     }
   }
 
-  .section-alt {
-    @apply border-y border-white/[0.04] bg-white/[0.015];
+  .section-default {
+    @apply relative;
+  }
+
+  .section-blue {
+    @apply relative border-y border-sky-500/[0.08];
+    background: linear-gradient(
+      180deg,
+      rgba(56, 189, 248, 0.04) 0%,
+      transparent 50%,
+      rgba(56, 189, 248, 0.02) 100%
+    );
+  }
+
+  .section-purple {
+    @apply relative border-y border-violet-500/[0.08];
+    background: linear-gradient(
+      180deg,
+      rgba(139, 92, 246, 0.05) 0%,
+      transparent 100%
+    );
+  }
+
+  .section-glow-top::before {
+    content: "";
+    @apply absolute top-0 left-1/2 -translate-x-1/2 w-2/3 max-w-xl h-px pointer-events-none;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(56, 189, 248, 0.35),
+      rgba(139, 92, 246, 0.25),
+      transparent
+    );
   }
 
   .surface-card {
-    @apply rounded-xl border border-white/[0.08] bg-[var(--surface-elevated)] transition-all duration-300;
-    @apply hover:border-white/[0.12] hover:bg-[#1c1c1f];
+    @apply rounded-2xl border border-white/[0.08] bg-[var(--surface)] transition-all duration-300;
+    @apply hover:border-sky-500/20 hover:shadow-lg hover:shadow-sky-500/[0.06];
+  }
+
+  .surface-card-lift {
+    @apply surface-card hover:-translate-y-1;
+  }
+
+  .gradient-border-card {
+    @apply relative rounded-2xl p-[1px] transition-all duration-300;
+    background: linear-gradient(
+      135deg,
+      rgba(56, 189, 248, 0.15),
+      rgba(139, 92, 246, 0.1),
+      rgba(255, 255, 255, 0.05)
+    );
+  }
+
+  .gradient-border-card:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(56, 189, 248, 0.45),
+      rgba(139, 92, 246, 0.3),
+      rgba(56, 189, 248, 0.15)
+    );
+    box-shadow: 0 8px 32px rgba(56, 189, 248, 0.08);
+  }
+
+  .gradient-border-inner {
+    @apply rounded-[15px] bg-[var(--surface)] h-full;
+  }
+
+  .pro-card {
+    @apply gradient-border-card hover:-translate-y-1;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-md;
+    @apply bg-white/[0.04] border border-white/[0.08] text-slate-400;
+    @apply transition-colors duration-200;
+  }
+
+  .badge-sky {
+    @apply badge border-sky-500/20 bg-sky-500/10 text-sky-300;
+  }
+
+  .badge-violet {
+    @apply badge border-violet-500/20 bg-violet-500/10 text-violet-300;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-xl;
+    @apply bg-sky-500 text-slate-950 hover:bg-sky-400;
+    @apply shadow-lg shadow-sky-500/20 transition-all duration-200;
+    @apply hover:shadow-sky-500/30 hover:-translate-y-0.5;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-xl;
+    @apply border border-white/[0.12] text-slate-200 bg-white/[0.03];
+    @apply hover:bg-white/[0.06] hover:border-sky-500/30 hover:text-sky-200;
+    @apply transition-all duration-200 hover:-translate-y-0.5;
+  }
+
+  .tab-bar {
+    @apply flex gap-1 p-1.5 rounded-2xl border border-white/[0.08] bg-[var(--surface)]/80 backdrop-blur-sm;
   }
 
   .prose-muted {
-    @apply text-zinc-400 leading-relaxed;
+    @apply text-slate-400 leading-relaxed;
   }
 
   .text-balance {
     text-wrap: balance;
   }
 
-  .badge {
-    @apply inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-md;
-    @apply bg-white/[0.04] border border-white/[0.08] text-zinc-400;
+  .skill-float-card {
+    @apply px-3 py-2 rounded-xl text-xs sm:text-sm font-medium;
+    @apply border border-white/[0.1] bg-[var(--surface)]/90 backdrop-blur-sm;
+    @apply text-slate-300 cursor-default select-none;
+    @apply transition-all duration-300;
+    @apply hover:border-sky-500/40 hover:text-sky-200 hover:shadow-lg hover:shadow-sky-500/10;
   }
 }

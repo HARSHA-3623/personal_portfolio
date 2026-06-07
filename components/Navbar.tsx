@@ -53,7 +53,7 @@ export function Navbar() {
       className={clsx(
         "fixed top-0 w-full z-50 transition-all duration-300",
         scrolled
-          ? "py-3 bg-[#09090b]/85 backdrop-blur-md border-b border-white/[0.06]"
+          ? "py-3 bg-[#050816]/90 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20"
           : "py-4 bg-transparent"
       )}
       initial={{ y: -12, opacity: 0 }}
@@ -64,7 +64,7 @@ export function Navbar() {
         <button
           type="button"
           onClick={scrollTop}
-          className="font-heading text-sm font-semibold text-white hover:text-zinc-300 transition-colors shrink-0"
+          className="font-heading text-sm font-semibold text-white hover:text-sky-400 transition-colors shrink-0"
         >
           <span className="sm:hidden">HN</span>
           <span className="hidden sm:inline">Harshavardan Naidu</span>
@@ -80,16 +80,16 @@ export function Navbar() {
               type="button"
               onClick={() => handleNavClick(link.id)}
               className={clsx(
-                "relative px-3.5 py-2 text-sm rounded-md transition-colors duration-200 whitespace-nowrap",
+                "relative px-3.5 py-2 text-sm rounded-lg transition-colors duration-200 whitespace-nowrap",
                 active === link.id
-                  ? "text-white"
-                  : "text-zinc-500 hover:text-zinc-300"
+                  ? "text-sky-300"
+                  : "text-slate-500 hover:text-slate-300"
               )}
             >
               {active === link.id && (
                 <motion.span
                   layoutId="nav-pill"
-                  className="absolute inset-0 bg-white/[0.06] rounded-md"
+                  className="absolute inset-0 bg-sky-500/10 border border-sky-500/20 rounded-lg"
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 />
               )}
@@ -100,7 +100,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="lg:hidden p-2 rounded-lg text-zinc-400 hover:bg-white/[0.06] hover:text-white shrink-0"
+          className="lg:hidden p-2 rounded-lg text-slate-400 hover:bg-white/[0.06] hover:text-white shrink-0"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -146,7 +146,7 @@ export function Navbar() {
             />
             <motion.div
               id="mobile-menu"
-              className="lg:hidden relative z-50 mx-4 sm:mx-8 mt-2 rounded-xl bg-[#111113] border border-white/[0.08] shadow-2xl overflow-hidden"
+              className="lg:hidden relative z-50 mx-4 sm:mx-8 mt-2 rounded-xl bg-[#0B1220] border border-white/[0.08] shadow-2xl overflow-hidden"
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
@@ -161,8 +161,8 @@ export function Navbar() {
                     className={clsx(
                       "block w-full text-left px-4 py-3 text-sm rounded-lg transition-colors font-medium",
                       active === link.id
-                        ? "text-white bg-white/[0.06]"
-                        : "text-zinc-400 hover:text-white hover:bg-white/[0.04]"
+                        ? "text-sky-300 bg-sky-500/10 border border-sky-500/20"
+                        : "text-slate-400 hover:text-white hover:bg-white/[0.04]"
                     )}
                   >
                     {link.label}

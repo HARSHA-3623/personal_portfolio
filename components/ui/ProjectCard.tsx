@@ -12,18 +12,18 @@ type Props = {
 };
 
 const PREVIEW_GRADIENTS = [
-  "from-zinc-800/60 to-zinc-900",
-  "from-indigo-950/40 to-zinc-900",
-  "from-zinc-800/50 to-zinc-900",
-  "from-slate-800/50 to-zinc-900",
-  "from-neutral-800/50 to-zinc-900",
-  "from-stone-800/50 to-zinc-900",
+  "from-sky-950/50 to-[#0B1220]",
+  "from-violet-950/40 to-[#0B1220]",
+  "from-slate-900/50 to-[#0B1220]",
+  "from-indigo-950/40 to-[#0B1220]",
+  "from-cyan-950/35 to-[#0B1220]",
+  "from-blue-950/40 to-[#0B1220]",
 ];
 
 export function ProjectCard({ project, index }: Props) {
   return (
     <motion.article
-      className="group surface-card flex flex-col h-full overflow-hidden"
+      className="group surface-card-lift flex flex-col h-full overflow-hidden"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
@@ -31,7 +31,7 @@ export function ProjectCard({ project, index }: Props) {
     >
       <div
         className={clsx(
-          "relative h-40 sm:h-44 overflow-hidden bg-surface-elevated",
+          "relative h-36 sm:h-40 overflow-hidden bg-surface-elevated",
           !project.image &&
             `bg-gradient-to-br ${PREVIEW_GRADIENTS[index % PREVIEW_GRADIENTS.length]}`
         )}
@@ -42,10 +42,10 @@ export function ProjectCard({ project, index }: Props) {
               src={project.image}
               alt=""
               fill
-              className="object-cover opacity-80 group-hover:opacity-95 group-hover:scale-[1.02] transition-all duration-500"
+              className="object-cover opacity-75 group-hover:opacity-90 group-hover:scale-[1.03] transition-all duration-500"
               sizes="(max-width: 768px) 100vw, 400px"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#18181b] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-transparent to-transparent" />
           </>
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
@@ -54,13 +54,16 @@ export function ProjectCard({ project, index }: Props) {
             </span>
           </div>
         )}
+        <span className="absolute top-3 left-3 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-md bg-violet-500/15 text-violet-300 border border-violet-500/20">
+          Personal
+        </span>
       </div>
 
       <div className="p-5 sm:p-6 flex flex-col flex-1">
-        <h3 className="font-heading text-lg font-semibold text-white group-hover:text-zinc-100 transition-colors">
+        <h3 className="font-heading text-base font-semibold text-white group-hover:text-sky-200 transition-colors">
           {project.title}
         </h3>
-        <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
+        <p className="mt-2 text-sm text-slate-500 leading-relaxed line-clamp-2">
           {project.description}
         </p>
 
@@ -72,15 +75,15 @@ export function ProjectCard({ project, index }: Props) {
           ))}
         </div>
 
-        <div className="mt-auto pt-5 flex gap-2">
+        <div className="mt-auto pt-4 flex gap-2">
           {project.github && project.github !== "#" && (
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium px-3 py-2 rounded-lg border border-white/[0.08] text-zinc-300 hover:text-white hover:border-white/[0.14] transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-lg border border-white/[0.08] text-slate-400 hover:text-sky-300 hover:border-sky-500/30 transition-all"
             >
-              <Github size={14} />
+              <Github size={13} />
               GitHub
             </a>
           )}
@@ -89,9 +92,9 @@ export function ProjectCard({ project, index }: Props) {
               href={project.liveDemo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium px-3 py-2 rounded-lg border border-white/[0.08] text-zinc-300 hover:text-white hover:border-white/[0.14] transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-lg border border-white/[0.08] text-slate-400 hover:text-violet-300 hover:border-violet-500/30 transition-all"
             >
-              <ExternalLink size={14} />
+              <ExternalLink size={13} />
               Live Demo
             </a>
           )}

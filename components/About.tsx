@@ -5,20 +5,20 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 export function About() {
   return (
-    <section id="about" className="scroll-target section-pad">
+    <section id="about" className="scroll-target section-pad section-blue">
       <SectionHeader
         eyebrow="About"
         title="Who I am"
         subtitle="Backend development, integrations, and platform work"
       />
       <Reveal>
-        <div className="max-w-2xl space-y-4">
-          <p className="text-zinc-300 text-base sm:text-lg leading-relaxed">
+        <div className="max-w-2xl space-y-4 surface-card-lift p-6 sm:p-8">
+          <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
             I build backend services for iGaming platforms — REST APIs,
             payment and affiliate integrations, transaction systems, and
             third-party connectivity.
           </p>
-          <p className="text-zinc-500 text-base leading-relaxed">
+          <p className="text-slate-500 text-base leading-relaxed">
             My work spans API development, platform configuration, casino and
             payment integrations, and debugging production issues. I&apos;m
             focused on writing clear, reliable backend code and continuing to
