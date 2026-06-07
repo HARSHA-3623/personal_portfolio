@@ -176,4 +176,8 @@ h3,
   .text-balance {
     text-wrap: balance;
   }
+
+  .text-content {
+    @apply text-justify;
+  }
 }

@@ -12,7 +12,7 @@ export function About() {
         subtitle="Backend development, integrations, and platform work"
       />
       <Reveal>
-        <div className="max-w-3xl space-y-4 surface-card-lift p-6 sm:p-8 lg:p-10">
+        <div className="max-w-3xl space-y-4 surface-card-lift p-6 sm:p-8 lg:p-10 text-content">
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
             I build backend services for iGaming platforms — REST APIs,
             payment and affiliate integrations, transaction systems, and

@@ -26,7 +26,7 @@ export function ProfessionalWorkCard({ project, index }: Props) {
             <h3 className="font-heading text-xl sm:text-2xl lg:text-[1.65rem] font-semibold text-white group-hover:text-sky-100 transition-colors">
               {project.title}
             </h3>
-            <p className="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed max-w-3xl">
+            <p className="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed max-w-3xl text-content">
               {project.description}
             </p>
           </div>
@@ -59,7 +59,7 @@ export function ProfessionalWorkCard({ project, index }: Props) {
                 className="text-sm text-slate-400 flex gap-2.5 leading-snug group-hover:text-slate-300 transition-colors"
               >
                 <span className="text-sky-500/70 shrink-0 mt-0.5">▸</span>
-                <span>{item}</span>
+                <span className="text-content">{item}</span>
               </li>
             ))}
           </ul>
@@ -79,7 +79,7 @@ export function ProfessionalWorkCard({ project, index }: Props) {
                       className="text-xs text-slate-500 leading-relaxed flex gap-2"
                     >
                       <span className="text-violet-500/60 shrink-0">—</span>
-                      {item}
+                      <span className="text-content">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -97,7 +97,7 @@ export function ProfessionalWorkCard({ project, index }: Props) {
                       className="text-xs text-slate-500 leading-relaxed flex gap-2"
                     >
                       <span className="text-emerald-500/60 shrink-0">—</span>
-                      {item}
+                      <span className="text-content">{item}</span>
                     </li>
                   ))}
                 </ul>

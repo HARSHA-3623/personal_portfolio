@@ -63,7 +63,7 @@ export function ProjectCard({ project, index }: Props) {
         <h3 className="font-heading text-base font-semibold text-white group-hover:text-sky-200 transition-colors">
           {project.title}
         </h3>
-        <p className="mt-2 text-sm text-slate-500 leading-relaxed line-clamp-2">
+        <p className="mt-2 text-sm text-slate-500 leading-relaxed line-clamp-2 text-content">
           {project.description}
         </p>
 

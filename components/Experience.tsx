@@ -46,7 +46,7 @@ export function Experience() {
                   {experienceMeta.industry}
                 </p>
 
-                <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+                <p className="text-slate-400 text-sm sm:text-base leading-relaxed text-content">
                   {experienceMeta.summary}
                 </p>
               </div>

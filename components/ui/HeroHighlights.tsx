@@ -20,7 +20,7 @@ export function HeroHighlights() {
             className="shrink-0 text-emerald-500/70"
             strokeWidth={2.5}
           />
-          <span>{item}</span>
+          <span className="text-content">{item}</span>
         </motion.li>
       ))}
     </ul>

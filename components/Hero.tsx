@@ -54,13 +54,13 @@ export function Hero() {
           </motion.p>
 
           <motion.div
-            className="mt-3 sm:mt-4 max-w-2xl space-y-3 text-slate-400 text-sm sm:text-base leading-relaxed"
+            className="mt-3 sm:mt-4 max-w-2xl space-y-3 text-slate-400 text-sm sm:text-base leading-relaxed text-content"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.24 }}
           >
             {heroIntro.map((paragraph) => (
-              <p key={paragraph} className="text-balance">
+              <p key={paragraph}>
                 {paragraph}
               </p>
             ))}

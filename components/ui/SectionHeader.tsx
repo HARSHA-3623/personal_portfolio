@@ -29,7 +29,7 @@ export function SectionHeader({
       </h2>
       {subtitle && (
         <p
-          className={`mt-3 text-slate-500 text-sm sm:text-base max-w-xl leading-relaxed ${
+          className={`mt-3 text-slate-500 text-sm sm:text-base max-w-xl leading-relaxed text-content ${
             align === "center" ? "mx-auto" : ""
           }`}
         >
