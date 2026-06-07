@@ -21,7 +21,7 @@ export function SkillShowcase({ compact = false }: Props) {
         aria-hidden
       />
 
-      <div className="relative rounded-2xl border border-white/[0.08] bg-[var(--surface)]/60 backdrop-blur-sm p-5 sm:p-6">
+      <div className="relative rounded-2xl border border-white/[0.08] bg-surface/60 backdrop-blur-sm p-5 sm:p-6">
         <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-sky-400/80 mb-4">
           Tech stack
         </p>

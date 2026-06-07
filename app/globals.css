@@ -101,7 +101,7 @@ h3,
   }
 
   .surface-card {
-    @apply rounded-2xl border border-white/[0.08] bg-[var(--surface)] transition-all duration-300;
+    @apply rounded-2xl border border-white/[0.08] bg-surface transition-all duration-300;
     @apply hover:border-sky-500/20 hover:shadow-lg hover:shadow-sky-500/[0.06];
   }
 
@@ -130,7 +130,7 @@ h3,
   }
 
   .gradient-border-inner {
-    @apply rounded-[15px] bg-[var(--surface)] h-full;
+    @apply rounded-[15px] bg-surface h-full;
   }
 
   .pro-card {
@@ -166,7 +166,7 @@ h3,
   }
 
   .tab-bar {
-    @apply flex gap-1 p-1.5 rounded-2xl border border-white/[0.08] bg-[var(--surface)]/80 backdrop-blur-sm;
+    @apply flex gap-1 p-1.5 rounded-2xl border border-white/[0.08] bg-surface/80 backdrop-blur-sm;
   }
 
   .prose-muted {
@@ -179,7 +179,7 @@ h3,
 
   .skill-float-card {
     @apply px-3 py-2 rounded-xl text-xs sm:text-sm font-medium;
-    @apply border border-white/[0.1] bg-[var(--surface)]/90 backdrop-blur-sm;
+    @apply border border-white/[0.1] bg-surface/90 backdrop-blur-sm;
     @apply text-slate-300 cursor-default select-none;
     @apply transition-all duration-300;
     @apply hover:border-sky-500/40 hover:text-sky-200 hover:shadow-lg hover:shadow-sky-500/10;
