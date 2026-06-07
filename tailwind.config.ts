@@ -8,33 +8,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      maxWidth: {
-        site: "1400px",
-      },
       colors: {
         surface: {
-          DEFAULT: "#0f1419",
-          elevated: "#151c24",
-          glass: "rgba(21, 28, 36, 0.72)",
+          DEFAULT: "#111113",
+          elevated: "#18181b",
         },
         accent: {
-          DEFAULT: "#38bdf8",
-          muted: "#0ea5e9",
+          DEFAULT: "#818cf8",
+          muted: "#6366f1",
         },
       },
       fontFamily: {
         sans: ["var(--font-body)", "system-ui", "sans-serif"],
         heading: ["var(--font-heading)", "system-ui", "sans-serif"],
-      },
-      animation: {
-        "pulse-slow": "pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        float: "float 8s ease-in-out infinite",
-      },
-      keyframes: {
-        float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-12px)" },
-        },
       },
     },
   },

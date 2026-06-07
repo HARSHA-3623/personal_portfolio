@@ -7,18 +7,17 @@ export const CONTACT = {
   github: "https://github.com/HARSHA-3623",
 };
 
-export const heroTechStack = [
+export const heroSkills = [
   "Node.js",
+  "Express.js",
   "PostgreSQL",
   "Redis",
-  "Express.js",
-];
-
-export const impactStats = [
-  { value: "400K+", label: "Users Migration Support" },
-  { value: "6000+", label: "Concurrent User Validation" },
-  { value: "Payment", label: "Gateway Integrations" },
-  { value: "Casino & Affiliate", label: "Integrations" },
+  "Socket.IO",
+  "REST APIs",
+  "Webhooks",
+  "Payment Integrations",
+  "Affiliate Systems",
+  "KYC",
 ];
 
 export const experienceMeta = {
@@ -26,25 +25,17 @@ export const experienceMeta = {
   role: "Backend Engineer (Solution Engineer)",
   duration: "Aug 2025 – Present",
   industry: "iGaming",
+  summary:
+    "Building backend services for iGaming platforms — REST APIs, payment and affiliate integrations, transaction processing, and third-party connectivity.",
 };
-
-export const experienceHighlights = [
-  "REST APIs for platform, admin, and client customization",
-  "Payment gateway integrations (N1CO, Virtual Pay, XGate)",
-  "Casino provider webhooks — bets, wins, and wallet flows",
-  "KYC onboarding and affiliate tracking integrations",
-  "Background jobs for affiliate and transaction events",
-  "Migration support for 400K+ user accounts",
-  "Load testing and callback optimization (~6000 concurrent users)",
-  "Customer.io email and backoffice service APIs",
-];
 
 export type Project = {
   title: string;
   description: string;
   contributions: string[];
   technologies: string[];
-  paymentProviders?: string[];
+  challenges?: string[];
+  learnings?: string[];
   image?: string;
   liveDemo?: string;
   github?: string;
@@ -54,40 +45,62 @@ export const professionalProjects: Project[] = [
   {
     title: "iGaming Platform Project 1",
     description:
-      "RESTful APIs for frontend applications, admin backoffice, and client platform configuration.",
+      "Worked on backend API development and platform management services for an iGaming platform.",
     contributions: [
-      "Developed backend APIs using Node.js and Express.js",
+      "Developed REST APIs",
       "Integrated payment gateway services",
-      "Integrated Customer.io email services",
+      "Integrated Customer.io",
       "Built admin backoffice APIs",
-      "Banner and game management APIs",
-      "Website customization APIs for clients",
-      "Client-specific platform configurations",
+      "Banner management APIs",
+      "Game management APIs",
+      "Website customization APIs",
     ],
     technologies: ["Node.js", "Express.js", "PostgreSQL", "Customer.io"],
+    challenges: [
+      "Supporting multiple client-specific platform configurations through a shared API layer",
+      "Maintaining consistent patterns across admin, frontend, and customization endpoints",
+    ],
+    learnings: [
+      "Designing modular REST APIs for multi-tenant platform features",
+      "Integrating third-party services with structured error handling and logging",
+    ],
   },
   {
     title: "iGaming Platform Project 2",
     description:
-      "Gaming integrations, transactions, migration support, KYC, affiliates, and payment services.",
+      "Worked on gaming integrations, transaction processing, onboarding systems, affiliate tracking, and platform migration support.",
     contributions: [
-      "Integrated casino providers with webhook handling",
-      "Processed wallet mutations and transaction flows",
-      "Payment callbacks and balance updates",
-      "Third-party KYC and onboarding workflows",
-      "Affiliate tracking with background job processing",
-      "Migration support for 400K+ users",
-      "Load testing and webhook optimization (~6000 concurrent users)",
-      "Admin backoffice APIs",
+      "Casino provider integrations",
+      "Bet and win processing",
+      "Wallet transaction handling",
+      "Payment gateway integrations",
+      "KYC integration",
+      "Affiliate platform integration",
+      "Background job processing",
+      "Socket.IO real-time wallet updates",
+      "User migration participation",
+      "Load testing participation",
+      "Admin backoffice API development",
     ],
     technologies: [
       "Node.js",
       "Express.js",
       "PostgreSQL",
       "Redis",
+      "Socket.IO",
       "Bull Queue",
+      "N1CO",
+      "Virtual Pay",
+      "XGate",
     ],
-    paymentProviders: ["N1CO", "Virtual Pay", "XGate"],
+    challenges: [
+      "Handling wallet updates across webhooks, background jobs, and real-time channels",
+      "Integrating diverse payment and casino provider callback formats into unified flows",
+    ],
+    learnings: [
+      "Transaction flow design with Redis, queues, and idempotent webhook handling",
+      "Delivering real-time wallet updates with Socket.IO alongside REST services",
+    ],
   },
 ];
 
@@ -165,7 +178,7 @@ export const skillGroups = [
   {
     name: "Backend",
     icon: "backend" as const,
-    items: ["Node.js", "Express.js", "REST APIs", "Webhooks"],
+    items: ["Node.js", "Express.js", "REST APIs", "Socket.IO", "Webhooks"],
   },
   {
     name: "Database",
@@ -199,9 +212,9 @@ export const currentLearning = [
 
 export const navLinks = [
   { id: "about", label: "About" },
-  { id: "impact", label: "Impact" },
   { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
+  { id: "work", label: "Work" },
+  { id: "personal", label: "Projects" },
   { id: "skills", label: "Skills" },
   { id: "contact", label: "Contact" },
 ];

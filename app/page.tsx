@@ -3,7 +3,8 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Experience } from "@/components/Experience";
-import { Projects } from "@/components/Projects";
+import { ProfessionalWork } from "@/components/ProfessionalWork";
+import { PersonalProjects } from "@/components/PersonalProjects";
 import { Skills } from "@/components/Skills";
 import { Learning } from "@/components/Learning";
 import { Contact } from "@/components/Contact";
@@ -18,7 +19,8 @@ export default function Home() {
         <Hero />
         <About />
         <Experience />
-        <Projects />
+        <ProfessionalWork />
+        <PersonalProjects />
         <Skills />
         <Learning />
         <Contact />

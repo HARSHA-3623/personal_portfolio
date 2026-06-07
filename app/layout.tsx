@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
+import { Space_Grotesk, Manrope } from "next/font/google";
 import "./globals.css";
 import { BackgroundEffects } from "@/components/BackgroundEffects";
-import { MouseGlow } from "@/components/MouseGlow";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-heading",
   display: "swap",
@@ -21,7 +20,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Harshavardan Naidu | Backend Engineer",
   description:
-    "Backend Engineer building iGaming platforms with Node.js, PostgreSQL, and Redis. APIs, payment integrations, affiliate systems, and transaction processing.",
+    "Backend Engineer building APIs, integrations, and transaction systems for iGaming platforms with Node.js, PostgreSQL, and Redis.",
   keywords: [
     "Backend Engineer",
     "Node.js",
@@ -34,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Harshavardan Naidu | Backend Engineer",
     description:
-      "Backend Engineer experienced in iGaming platforms, integrations, and transaction systems.",
+      "Backend Engineer focused on APIs, integrations, and backend services for iGaming platforms.",
     type: "website",
   },
 };
@@ -47,11 +46,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakarta.variable} ${manrope.variable}`}
+      className={`${spaceGrotesk.variable} ${manrope.variable}`}
     >
       <body className={`${manrope.className} antialiased`}>
         <BackgroundEffects />
-        <MouseGlow />
         {children}
       </body>
     </html>
