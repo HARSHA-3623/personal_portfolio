@@ -7,19 +7,6 @@ export const CONTACT = {
   github: "https://github.com/HARSHA-3623",
 };
 
-export const heroSkills = [
-  "Node.js",
-  "Express.js",
-  "PostgreSQL",
-  "Redis",
-  "Socket.IO",
-  "REST APIs",
-  "Webhooks",
-  "Payment Integrations",
-  "Affiliate Systems",
-  "KYC",
-];
-
 export const experienceMeta = {
   company: "GAMMASTACK",
   role: "Backend Engineer (Solution Engineer)",

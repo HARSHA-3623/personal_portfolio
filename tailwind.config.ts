@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        site: "1500px",
+      },
       colors: {
         surface: {
           DEFAULT: "#0B1220",

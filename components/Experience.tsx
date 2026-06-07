@@ -14,7 +14,7 @@ export function Experience() {
       />
 
       <Reveal>
-        <div className="relative max-w-2xl">
+        <div className="relative max-w-3xl lg:max-w-4xl">
           <div
             className="absolute left-[7px] top-3 bottom-3 w-px bg-gradient-to-b from-sky-500/40 via-violet-500/20 to-transparent hidden sm:block"
             aria-hidden

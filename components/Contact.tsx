@@ -50,8 +50,8 @@ export function Contact() {
         align="center"
       />
 
-      <Reveal className="w-full max-w-xl mx-auto text-center mb-10">
-        <div className="gradient-border-card max-w-lg mx-auto">
+      <Reveal className="w-full max-w-2xl mx-auto text-center mb-10">
+        <div className="gradient-border-card max-w-xl mx-auto">
           <div className="gradient-border-inner p-8 text-center">
             <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
               Let&apos;s talk about backend engineering, integrations, or your
@@ -64,7 +64,7 @@ export function Contact() {
         </div>
       </Reveal>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 w-full">
         {links.map((link, index) => (
           <motion.a
             key={link.label}

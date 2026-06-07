@@ -48,7 +48,7 @@ h3,
   }
 
   .container-wide {
-    @apply w-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-10;
+    @apply w-full max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-14;
   }
 
   .section-pad {
@@ -175,13 +175,5 @@ h3,
 
   .text-balance {
     text-wrap: balance;
-  }
-
-  .skill-float-card {
-    @apply px-3 py-2 rounded-xl text-xs sm:text-sm font-medium;
-    @apply border border-white/[0.1] bg-surface/90 backdrop-blur-sm;
-    @apply text-slate-300 cursor-default select-none;
-    @apply transition-all duration-300;
-    @apply hover:border-sky-500/40 hover:text-sky-200 hover:shadow-lg hover:shadow-sky-500/10;
   }
 }
