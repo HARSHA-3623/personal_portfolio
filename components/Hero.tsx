@@ -13,20 +13,20 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="scroll-target relative min-h-0 lg:min-h-[88vh] flex items-center section-pad pt-24 sm:pt-28 lg:pt-32 section-default"
+      className="scroll-target relative min-h-0 lg:min-h-[85vh] flex items-center container-wide px-5 sm:px-8 lg:px-12 xl:px-14 pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 section-default"
     >
-      <div className="w-full grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
+      <div className="w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 sm:gap-10 lg:gap-12">
         <motion.div
-          className="order-2 lg:order-1 min-w-0"
-          initial={{ opacity: 0, y: 24 }}
+          className="order-2 lg:order-1 flex-1 min-w-0 max-w-3xl"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease }}
+          transition={{ duration: 0.55, ease }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-xs text-emerald-400 mb-5 sm:mb-6"
-            initial={{ opacity: 0, y: 12 }}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-xs text-emerald-400 mb-4 sm:mb-5"
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.45, delay: 0.05 }}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             Available for opportunities
@@ -34,38 +34,38 @@ export function Hero() {
 
           <motion.h1
             className="font-heading text-3xl sm:text-4xl md:text-5xl xl:text-[3.25rem] font-bold tracking-tight leading-[1.1] text-white"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.6, ease }}
+            transition={{ delay: 0.1, duration: 0.55, ease }}
           >
             <span className="block">Harshavardan</span>
             <span className="block text-gradient mt-0.5 sm:mt-1">Naidu</span>
           </motion.h1>
 
           <motion.p
-            className="mt-4 sm:mt-5 text-lg sm:text-xl text-sky-300/90 font-semibold font-heading"
-            initial={{ opacity: 0, y: 12 }}
+            className="mt-3 sm:mt-4 text-lg sm:text-xl text-sky-300/90 font-semibold font-heading"
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.22 }}
+            transition={{ delay: 0.18 }}
           >
             Backend Engineer
           </motion.p>
 
           <motion.p
-            className="mt-3 sm:mt-4 max-w-xl text-slate-400 text-base sm:text-lg leading-relaxed text-balance"
-            initial={{ opacity: 0, y: 12 }}
+            className="mt-3 max-w-xl text-slate-400 text-base sm:text-lg leading-relaxed text-balance"
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.28 }}
+            transition={{ delay: 0.24 }}
           >
             Backend Engineer focused on building APIs, integrations, transaction
             systems, and backend services for iGaming platforms.
           </motion.p>
 
           <motion.div
-            className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-3"
-            initial={{ opacity: 0, y: 10 }}
+            className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap gap-3"
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.36 }}
+            transition={{ delay: 0.32 }}
           >
             <button
               type="button"
@@ -92,7 +92,7 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        <div className="order-1 lg:order-2 min-w-0 w-full">
+        <div className="order-1 lg:order-2 flex justify-center lg:justify-end lg:flex-shrink-0 lg:w-[260px]">
           <HeroPhoto />
         </div>
       </div>
