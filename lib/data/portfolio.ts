@@ -1,5 +1,5 @@
 export const RESUME_URL =
-  "https://drive.google.com/file/d/1QtBWm_XQRZbikGr0C05j_laxV_CCPYHj/view?usp=drive_link";
+  "https://drive.google.com/file/d/1F-AH4I2drnOLE2t5QOSWYEjD8fwGhZua/view?usp=sharing";
 
 export const CONTACT = {
   email: "harshavardan3623@gmail.com",
