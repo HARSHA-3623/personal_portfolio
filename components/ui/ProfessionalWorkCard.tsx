@@ -1,14 +1,42 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import type { Project } from "@/lib/data/portfolio";
+import { HighlightedText } from "@/components/ui/HighlightedText";
 
 type Props = {
   project: Project;
   index: number;
 };
 
+const featuredContributionIndexes = {
+  "Lukx Link": [0, 8, 10, 12, 13],
+  "Candy Coins": [15, 16, 17, 18],
+} as const;
+
+const projectDescriptions = {
+  "Lukx Link": "Production iGaming backend platform focused on player and Admin Backoffice services, transaction processing, payment gateway and casino provider integrations, real-time wallet updates, and secure role-based workflows.",
+  "Candy Coins": "Production iGaming platform where I built backend services and owned the migration of 300K+ user accounts from SweetSweep, using Bull Queue, parallel processing, deduplication, and controlled concurrency to execute the migration safely with zero data loss.",
+} as const;
+
 export function ProfessionalWorkCard({ project, index }: Props) {
+  const [expanded, setExpanded] = useState(false);
+  const description = projectDescriptions[
+    project.title as keyof typeof projectDescriptions
+  ] ?? project.description;
+  const featuredIndexes = featuredContributionIndexes[
+    project.title as keyof typeof featuredContributionIndexes
+  ] ?? project.contributions.slice(0, 5).map((_, itemIndex) => itemIndex);
+  const indexes: number[] = [...featuredIndexes];
+  const featuredContributions = indexes.map((itemIndex) => project.contributions[itemIndex]);
+  const remainingContributions = project.contributions.filter(
+    (_, itemIndex) => !indexes.includes(itemIndex)
+  );
+  const initialContributions = project.title === "Candy Coins" && project.highlight
+    ? [project.highlight, ...featuredContributions]
+    : featuredContributions;
+
   return (
     <motion.article
       className="pro-card group"
@@ -17,8 +45,8 @@ export function ProfessionalWorkCard({ project, index }: Props) {
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
     >
-      <div className="gradient-border-inner p-6 sm:p-8 lg:p-10">
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-6">
+      <div className="gradient-border-inner p-6 sm:p-7 lg:p-8">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-5">
           <div className="min-w-0 flex-1">
             <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] font-semibold uppercase tracking-wider bg-sky-500/15 text-sky-400 border border-sky-500/25 mb-4">
               Professional
@@ -27,12 +55,12 @@ export function ProfessionalWorkCard({ project, index }: Props) {
               {project.title}
             </h3>
             <p className="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed max-w-3xl text-content">
-              {project.description}
+              {description}
             </p>
           </div>
         </div>
 
-        <div className="mb-8">
+        <div className="mb-6">
           <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-600 mb-3">
             Technologies
           </p>
@@ -49,24 +77,40 @@ export function ProfessionalWorkCard({ project, index }: Props) {
         </div>
 
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-600 mb-4">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-600 mb-3">
             Key contributions
           </p>
-          <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
-            {project.contributions.map((item) => (
+          <motion.ul layout className="grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
+            {initialContributions.map((item) => (
               <li
                 key={item}
                 className="text-sm text-slate-400 flex gap-2.5 leading-snug group-hover:text-slate-300 transition-colors"
               >
                 <span className="text-sky-500/70 shrink-0 mt-0.5">▸</span>
-                <span className="text-content">{item}</span>
+                <span className="text-content"><HighlightedText>{item}</HighlightedText></span>
               </li>
             ))}
-          </ul>
+            {expanded && remainingContributions.map((item) => (
+                  <li key={item} className="text-sm text-slate-500 flex gap-2.5 leading-snug">
+                    <span className="text-sky-500/70 shrink-0 mt-0.5">▸</span>
+                    <span><HighlightedText>{item}</HighlightedText></span>
+                  </li>
+                ))}
+          </motion.ul>
+          {remainingContributions.length > 0 && (
+            <button
+              type="button"
+              onClick={() => setExpanded((value) => !value)}
+              aria-expanded={expanded}
+              className="mt-4 inline-flex items-center rounded-lg border border-sky-500/20 bg-sky-500/[0.06] px-3 py-2 text-xs font-medium text-sky-400 transition-colors hover:bg-sky-500/10 hover:text-sky-300"
+            >
+              {expanded ? "Show less ↑" : "Show more ↓"}
+            </button>
+          )}
         </div>
 
         {(project.challenges || project.learnings) && (
-          <div className="mt-8 pt-6 border-t border-white/[0.06] grid sm:grid-cols-2 gap-6">
+          <div className="mt-6 pt-5 border-t border-white/[0.06] grid sm:grid-cols-2 gap-5">
             {project.challenges && (
               <div>
                 <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-600 mb-3">

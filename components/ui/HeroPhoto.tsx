@@ -8,7 +8,7 @@ const PROFILE_IMAGE = "/assets/profile.png";
 export function HeroPhoto() {
   return (
     <motion.div
-      className="relative w-[140px] h-[140px] sm:w-[150px] sm:h-[150px] lg:w-[260px] lg:h-[260px] shrink-0"
+      className="relative w-[190px] h-[190px] sm:w-[210px] sm:h-[210px] lg:w-[360px] lg:h-[360px] xl:w-[390px] xl:h-[390px] shrink-0"
       initial={{ opacity: 0, scale: 0.92 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
@@ -26,7 +26,7 @@ export function HeroPhoto() {
             fill
             priority
             className="object-cover object-top"
-            sizes="(max-width: 1024px) 150px, 260px"
+            sizes="(max-width: 640px) 190px, (max-width: 1024px) 210px, (max-width: 1280px) 360px, 390px"
           />
         </div>
       </div>

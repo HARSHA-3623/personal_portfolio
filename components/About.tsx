@@ -24,6 +24,12 @@ export function About() {
             focused on writing clear, reliable backend code and continuing to
             grow in system design and cloud infrastructure.
           </p>
+          <p className="text-slate-500 text-base leading-relaxed">
+            In production, I work with PostgreSQL, Redis, AWS, Bull Queue, and
+            async job processing — building webhook handling, payment
+            integrations, production migrations, and performance optimizations
+            for transaction-driven platforms.
+          </p>
         </div>
       </Reveal>
     </section>

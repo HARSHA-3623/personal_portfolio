@@ -21,6 +21,8 @@ export const heroTechRotator = [
   "Socket.IO",
   "Webhooks",
   "REST APIs",
+  "AWS",
+  "Bull Queue",
 ];
 
 export const heroHighlights = [
@@ -32,13 +34,31 @@ export const heroHighlights = [
   "REST APIs & Webhooks",
 ];
 
+export const heroMetrics = [
+  { value: "3×", label: "webhook latency reduction" },
+  { value: "4×", label: "API response-time improvement" },
+  { value: "300K+", label: "users migrated to production" },
+  { value: "400K+", label: "accounts supported in legacy migration" },
+  { value: "10+", label: "third-party integrations" },
+];
+
 export const experienceMeta = {
   company: "GAMMASTACK",
   role: "Backend Engineer (Solution Engineer)",
   duration: "Aug 2025 – Present",
+  location: "Bengaluru, India",
   industry: "iGaming",
   summary:
     "Building backend services for iGaming platforms — REST APIs, payment and affiliate integrations, transaction processing, and third-party connectivity.",
+  achievements: [
+    "Developed and shipped production REST APIs, transaction workflows, Admin Backoffice systems, and third-party integrations using Node.js, Express.js, PostgreSQL, and Redis.",
+    "Reduced webhook callback latency approximately 3×, from around 2500ms to under 800ms, through Redis caching improvements and PostgreSQL indexing.",
+    "Reduced API response time approximately 4×, from around 800ms to under 200ms, through query optimization and Redis caching.",
+    "Supported migration of 400K+ user accounts and transaction histories from a legacy platform, including data validation, transfer workflows, and production verification.",
+    "Integrated 10+ third-party services across payment gateways, casino providers, KYC, affiliate tracking, and email platforms.",
+    "Implemented idempotency and retry handling for production callbacks and webhooks.",
+    "Maintained zero duplicate transaction errors for the relevant callback and integration workflows.",
+  ],
 };
 
 export type Project = {
@@ -46,6 +66,7 @@ export type Project = {
   description: string;
   contributions: string[];
   technologies: string[];
+  highlight?: string;
   challenges?: string[];
   learnings?: string[];
   image?: string;
@@ -55,9 +76,9 @@ export type Project = {
 
 export const professionalProjects: Project[] = [
   {
-    title: "iGaming Platform Project 1",
+    title: "Lukx Link",
     description:
-      "Worked on backend API development and platform management services for an iGaming platform.",
+      "Worked on backend API development and platform management services for an iGaming platform — production REST APIs for the player application and Admin Backoffice.",
     contributions: [
       "Developed REST APIs",
       "Integrated payment gateway services",
@@ -66,21 +87,42 @@ export const professionalProjects: Project[] = [
       "Banner management APIs",
       "Game management APIs",
       "Website customization APIs",
+      "Used PostgreSQL for persistence and Redis for caching and session management.",
+      "Integrated 3 payment gateways: N1CO, Virtual Pay, and XGate.",
+      "Implemented idempotent payment callback handling and retry mechanisms.",
+      "Integrated multiple casino providers with idempotent bet and win callback processing.",
+      "Maintained accurate wallet debit/credit state under concurrent transactions.",
+      "Delivered real-time wallet balance updates using Socket.IO — connected players received updates within approximately 200ms of transaction events.",
+      "Implemented RBAC for Operator, Agent, and Super-admin roles.",
+      "Integrated affiliate tracking and KYC verification into Admin Backoffice workflows.",
     ],
-    technologies: ["Node.js", "Express.js", "PostgreSQL", "Customer.io"],
+    technologies: [
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "Redis",
+      "REST APIs",
+      "Payments",
+      "Socket.IO",
+      "Customer.io",
+    ],
     challenges: [
       "Supporting multiple client-specific platform configurations through a shared API layer",
       "Maintaining consistent patterns across admin, frontend, and customization endpoints",
+      "Maintaining wallet consistency across concurrent payment and casino callbacks.",
     ],
     learnings: [
       "Designing modular REST APIs for multi-tenant platform features",
       "Integrating third-party services with structured error handling and logging",
+      "Designing idempotent webhook handlers with retry logic for production payment systems.",
     ],
   },
   {
-    title: "iGaming Platform Project 2",
+    title: "Candy Coins",
     description:
-      "Worked on gaming integrations, transaction processing, onboarding systems, affiliate tracking, and platform migration support.",
+      "Worked on gaming integrations, transaction processing, onboarding systems, affiliate tracking, and platform migration support — including VIP rewards and production-scale user migration from SweetSweep.",
+    highlight:
+      "Owned and executed migration of 300K+ user accounts from SweetSweep to Candy Coins with zero data loss and zero failures during the live migration run.",
     contributions: [
       "Casino provider integrations",
       "Bet and win processing",
@@ -93,6 +135,15 @@ export const professionalProjects: Project[] = [
       "User migration participation",
       "Load testing participation",
       "Admin backoffice API development",
+      "Developed backend APIs for player-facing and Admin Backoffice applications.",
+      "Implemented the VIP Tier rewards system.",
+      "Configured Customer.io transactional emails for registration, deposit alerts, and KYC updates.",
+      "Owned and executed migration of 300K+ user accounts and associated data from SweetSweep to Candy Coins.",
+      "Built migration pipeline with paginated fetching, parallel processing, deduplication, and controlled worker concurrency.",
+      "Designed Bull Queue workers to process large batches in parallel.",
+      "Tuned worker concurrency and database configuration to prevent database overload.",
+      "Load tested the migration pipeline at production scale on staging.",
+      "Achieved zero failures during the live migration run.",
     ],
     technologies: [
       "Node.js",
@@ -101,6 +152,7 @@ export const professionalProjects: Project[] = [
       "Redis",
       "Socket.IO",
       "Bull Queue",
+      "AWS",
       "N1CO",
       "Virtual Pay",
       "XGate",
@@ -108,10 +160,12 @@ export const professionalProjects: Project[] = [
     challenges: [
       "Handling wallet updates across webhooks, background jobs, and real-time channels",
       "Integrating diverse payment and casino provider callback formats into unified flows",
+      "Processing hundreds of thousands of records without overloading PostgreSQL during parallel migration.",
     ],
     learnings: [
       "Transaction flow design with Redis, queues, and idempotent webhook handling",
       "Delivering real-time wallet updates with Socket.IO alongside REST services",
+      "Designing Bull Queue worker pipelines with controlled concurrency for large-scale data migrations.",
     ],
   },
 ];
@@ -179,7 +233,7 @@ export const personalProjects: Project[] = [
       "Layout systems, responsive design, and component structure.",
     ],
     technologies: ["Tailwind CSS", "HTML"],
-    liveDemo: "https://netflix-clone-by-harsha.vercel.app/",
+    liveDemo: "https://netflix-clone-react-rust-eight.vercel.app/",
     github: "https://github.com/HARSHA-3623/Netflix-Clone",
     image:
       "https://www.codewithrandom.com/wp-content/uploads/2022/08/Snapshot_22-08-11_14-06-52.png",
@@ -188,30 +242,67 @@ export const personalProjects: Project[] = [
 
 export const skillGroups = [
   {
+    name: "Languages",
+    icon: "languages" as const,
+    items: ["JavaScript", "Java", "SQL"],
+  },
+  {
     name: "Backend",
     icon: "backend" as const,
-    items: ["Node.js", "Express.js", "REST APIs", "Socket.IO", "Webhooks"],
+    items: [
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "Socket.IO",
+      "Webhooks",
+    ],
   },
   {
-    name: "Database",
+    name: "Databases & Caching",
     icon: "database" as const,
-    items: ["PostgreSQL", "Redis"],
+    items: ["PostgreSQL", "Redis", "MySQL"],
   },
   {
-    name: "Integrations",
+    name: "Async Processing & Reliability",
+    icon: "reliability" as const,
+    items: [
+      "Bull Queue",
+      "Job Queues",
+      "Idempotency",
+      "Retry Mechanisms",
+    ],
+  },
+  {
+    name: "Cloud & DevOps",
+    icon: "cloud" as const,
+    items: [
+      "Git",
+      "Linux",
+      "AWS",
+      "ECS",
+      "EC2",
+      "RDS",
+      "Aurora",
+      "S3",
+      "CloudWatch",
+      "Docker",
+      "GitHub",
+      "GitLab",
+      "Agile / Scrum",
+    ],
+  },
+  {
+    name: "Integrations & Security",
     icon: "integrations" as const,
     items: [
       "Payment Gateways",
       "Affiliate Systems",
       "Casino Providers",
       "KYC Services",
-      "Email Providers",
+      "Customer.io",
+      "Third-party APIs",
+      "RBAC",
     ],
-  },
-  {
-    name: "Tools",
-    icon: "tools" as const,
-    items: ["Git", "Postman", "Linux", "AWS"],
   },
 ];
 

@@ -5,6 +5,7 @@ import { RESUME_URL, heroIntro } from "@/lib/data/portfolio";
 import { HeroPhoto } from "@/components/ui/HeroPhoto";
 import { TechRotator } from "@/components/ui/TechRotator";
 import { HeroHighlights } from "@/components/ui/HeroHighlights";
+import { HeroMetrics } from "@/components/ui/HeroMetrics";
 import { scrollToSection } from "@/lib/scroll";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -15,11 +16,11 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="scroll-target relative min-h-0 lg:min-h-[85vh] flex items-center container-wide px-5 sm:px-8 lg:px-12 xl:px-14 pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 section-default"
+      className="scroll-target relative min-h-0 lg:min-h-screen flex items-center container-wide pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-28 lg:pb-20 section-default"
     >
-      <div className="w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 sm:gap-7 lg:gap-8">
+      <div className="w-full flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 xl:gap-16">
         <motion.div
-          className="order-2 lg:order-1 flex-1 min-w-0 max-w-3xl"
+          className="order-2 lg:order-1 min-w-0 lg:basis-[55%]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease }}
@@ -54,7 +55,7 @@ export function Hero() {
           </motion.p>
 
           <motion.div
-            className="mt-3 sm:mt-4 max-w-2xl space-y-3 text-slate-400 text-sm sm:text-base leading-relaxed text-content"
+            className="mt-3 sm:mt-4 max-w-[46rem] space-y-3 text-slate-400 text-sm sm:text-base leading-relaxed text-content"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.24 }}
@@ -73,6 +74,7 @@ export function Hero() {
           >
             <TechRotator />
             <HeroHighlights />
+            <HeroMetrics />
           </motion.div>
 
           <motion.div
@@ -106,7 +108,7 @@ export function Hero() {
           </motion.div>
         </motion.div>
 
-        <div className="order-1 lg:order-2 flex justify-center lg:justify-end lg:flex-shrink-0 lg:w-[260px] lg:-ml-2">
+        <div className="order-1 lg:order-2 flex justify-center lg:absolute lg:top-[50svh] lg:right-10 xl:right-12 lg:-translate-y-1/2 lg:basis-[45%]">
           <HeroPhoto />
         </div>
       </div>

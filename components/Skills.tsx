@@ -1,15 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Server, Database, Plug, Wrench } from "lucide-react";
+import { Braces, Server, Database, ShieldCheck, Cloud, Plug } from "lucide-react";
 import { skillGroups } from "@/lib/data/portfolio";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const icons = {
+  languages: Braces,
   backend: Server,
   database: Database,
+  reliability: ShieldCheck,
+  cloud: Cloud,
   integrations: Plug,
-  tools: Wrench,
 } as const;
 
 const iconColors = [
@@ -25,7 +27,7 @@ export function Skills() {
       <SectionHeader
         eyebrow="Skills"
         title="Technologies I use"
-        subtitle="Backend, database, integrations, and tooling"
+        subtitle="Backend engineering, reliable systems, and production integrations"
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
@@ -34,7 +36,7 @@ export function Skills() {
           return (
             <motion.div
               key={group.name}
-              className="surface-card-lift p-6 sm:p-7 group"
+              className="surface-card-lift min-h-[172px] p-6 sm:p-7 group"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

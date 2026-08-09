@@ -20,12 +20,14 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Harshavardan Naidu | Backend Engineer",
   description:
-    "Backend Engineer building APIs, integrations, and transaction systems for iGaming platforms with Node.js, PostgreSQL, and Redis.",
+    "Backend Engineer building APIs, integrations, and transaction systems for iGaming platforms with Node.js, PostgreSQL, Redis, and AWS.",
   keywords: [
     "Backend Engineer",
     "Node.js",
     "PostgreSQL",
     "Redis",
+    "AWS",
+    "Bull Queue",
     "API Development",
     "iGaming",
   ],

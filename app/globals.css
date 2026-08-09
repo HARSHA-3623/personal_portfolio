@@ -48,11 +48,11 @@ h3,
   }
 
   .container-wide {
-    @apply w-full max-w-[1500px] mx-auto px-5 sm:px-8 lg:px-12 xl:px-14;
+    @apply w-full max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-10 xl:px-12;
   }
 
   .section-pad {
-    @apply py-20 sm:py-28 container-wide relative;
+    @apply py-16 sm:py-20 lg:py-24 container-wide relative;
   }
 
   .scroll-target {
@@ -178,6 +178,6 @@ h3,
   }
 
   .text-content {
-    @apply text-justify;
+    @apply text-left;
   }
 }
