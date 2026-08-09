@@ -15,6 +15,11 @@ const featuredContributionIndexes = {
   "Candy Coins": [15, 16, 17, 18],
 } as const;
 
+const redundantContributionIndexes = {
+  "Lukx Link": [1],
+  "Candy Coins": [8, 9, 10, 14, 19],
+} as const;
+
 const projectDescriptions = {
   "Lukx Link": "Production iGaming backend platform focused on player and Admin Backoffice services, transaction processing, payment gateway and casino provider integrations, real-time wallet updates, and secure role-based workflows.",
   "Candy Coins": "Production iGaming platform where I built backend services and owned the migration of 300K+ user accounts from SweetSweep, using Bull Queue, parallel processing, deduplication, and controlled concurrency to execute the migration safely with zero data loss.",
@@ -29,9 +34,14 @@ export function ProfessionalWorkCard({ project, index }: Props) {
     project.title as keyof typeof featuredContributionIndexes
   ] ?? project.contributions.slice(0, 5).map((_, itemIndex) => itemIndex);
   const indexes: number[] = [...featuredIndexes];
+  const redundantIndexes: number[] = [
+    ...(redundantContributionIndexes[
+      project.title as keyof typeof redundantContributionIndexes
+    ] ?? []),
+  ];
   const featuredContributions = indexes.map((itemIndex) => project.contributions[itemIndex]);
   const remainingContributions = project.contributions.filter(
-    (_, itemIndex) => !indexes.includes(itemIndex)
+    (_, itemIndex) => !indexes.includes(itemIndex) && !redundantIndexes.includes(itemIndex)
   );
   const initialContributions = project.title === "Candy Coins" && project.highlight
     ? [project.highlight, ...featuredContributions]

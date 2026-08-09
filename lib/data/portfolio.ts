@@ -105,6 +105,9 @@ export const professionalProjects: Project[] = [
       "Payments",
       "Socket.IO",
       "Customer.io",
+      "N1CO",
+      "Virtual Pay",
+      "XGate",
     ],
     challenges: [
       "Supporting multiple client-specific platform configurations through a shared API layer",
@@ -153,9 +156,7 @@ export const professionalProjects: Project[] = [
       "Socket.IO",
       "Bull Queue",
       "AWS",
-      "N1CO",
-      "Virtual Pay",
-      "XGate",
+      "Customer.io",
     ],
     challenges: [
       "Handling wallet updates across webhooks, background jobs, and real-time channels",
